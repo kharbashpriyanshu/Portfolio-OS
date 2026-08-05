@@ -1,0 +1,53 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "useDefineForClassFields": true,
+    "lib": ["ES2022", "DOM", "DOM.Iterable"],
+    "module": "ESNext",
+    "skipLibCheck": true,
+
+    /* Bundler mode */
+    "moduleResolution": "bundler",
+    "allowImportingTsExtensions": true,
+    "isolatedModules": true,
+    "moduleDetection": "force",
+    "noEmit": true,
+    "jsx": "react-jsx",
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "resolveJsonModule": true,
+
+    /* Linting */
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true,
+    "noUncheckedSideEffectImports": true,
+
+    /* Path Aliases & Absolute Imports */
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"],
+      "@components/*": ["./src/components/*"],
+      "@common/*": ["./src/components/common/*"],
+      "@layout/*": ["./src/components/layout/*"],
+      "@sections/*": ["./src/components/sections/*"],
+      "@ui/*": ["./src/components/ui/*"],
+      "@pages/*": ["./src/pages/*"],
+      "@hooks/*": ["./src/hooks/*"],
+      "@lib/*": ["./src/lib/*"],
+      "@utils/*": ["./src/utils/*"],
+      "@types/*": ["./src/types/*"],
+      "@styles/*": ["./src/styles/*"],
+      "@assets/*": ["./src/assets/*"],
+      "@constants/*": ["./src/constants/*"],
+      "@config/*": ["./src/config/*"],
+      "@context/*": ["./src/context/*"],
+      "@providers/*": ["./src/providers/*"],
+      "@services/*": ["./src/services/*"],
+      "@animations/*": ["./src/animations/*"],
+      "@data/*": ["./src/data/*"]
+    }
+  },
+  "include": ["src"]
+}

@@ -1,0 +1,5 @@
+# Robots.txt for Portfolio OS v1.0
+User-agent: *
+Allow: /
+
+Sitemap: http://localhost:3000/sitemap.xml
