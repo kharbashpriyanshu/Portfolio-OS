@@ -2,7 +2,7 @@ import React from "react";
 import { SEO } from "@/components/common/SEO";
 import { ErrorBoundary } from "@/components/common/ErrorBoundary";
 import { HeroSection } from "@/components/sections/hero/HeroSection";
-import { AboutMeSection } from "@/components/sections/about/AboutMeSection";
+import { MissionControlSection } from "@/components/sections/about/MissionControlSection";
 import { EngineeringJourneySection } from "@/components/sections/journey/EngineeringJourneySection";
 import { FeaturedProjectsSection } from "@/components/sections/projects/FeaturedProjectsSection";
 import { RecruiterMetricsSection } from "@/components/sections/metrics/RecruiterMetricsSection";
@@ -12,7 +12,7 @@ import { RecruiterMetricsSection } from "@/components/sections/metrics/Recruiter
  * Renders ONLY the authorized sections for Sprint 2.3:
  * 1. Hero Section (HeroSection)
  * 2. Recruiter Snapshot Metrics (RecruiterMetricsSection)
- * 3. About Me (AboutMeSection)
+ * 3. Mission Control (MissionControlSection)
  * 4. Engineering Journey (EngineeringJourneySection)
  * 5. Featured Engineering Case Studies (FeaturedProjectsSection)
  */
@@ -27,7 +27,7 @@ export function HomePage() {
         <RecruiterMetricsSection />
       </ErrorBoundary>
       <ErrorBoundary>
-        <AboutMeSection />
+        <MissionControlSection />
       </ErrorBoundary>
       <ErrorBoundary>
         <EngineeringJourneySection />
