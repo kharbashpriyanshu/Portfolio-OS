@@ -1,7 +1,9 @@
 import type { SiteConfig } from "@/types";
-import { APP_NAME, APP_OWNER } from "@/constants";
+import { APP_NAME } from "@/constants";
 import env from "@/config/env";
 import { SOCIAL_LINKS } from "@/config/navigation";
+
+import { PROFILE_CONFIG } from "@/config/profile";
 
 /**
  * Site metadata structure for SEO, Open Graph, and Twitter Cards.
@@ -9,9 +11,8 @@ import { SOCIAL_LINKS } from "@/config/navigation";
  */
 export const siteConfig: SiteConfig = {
   name: APP_NAME,
-  author: APP_OWNER,
-  description:
-    "Professional Cyber Security Engineer, AI Security Developer, and Digital Forensics Enthusiast portfolio engineered by Priyanshu Kharbash.",
+  author: PROFILE_CONFIG.name,
+  description: `${PROFILE_CONFIG.headline}, ${PROFILE_CONFIG.subtitle} portfolio engineered by ${PROFILE_CONFIG.name}.`,
   url: env.appUrl,
   ogImage: `${env.appUrl}/og-image.png`,
   links: {

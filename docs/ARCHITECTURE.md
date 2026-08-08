@@ -1,88 +1,37 @@
-# Portfolio OS v1.0 — Architecture & Engineering Specification
+# Portfolio OS Architecture
 
-**Owner:** Priyanshu Kharbash  
-**Version:** 1.0.0  
-**Stack:** React 19, Vite, TypeScript, Tailwind CSS, React Router 7, Framer Motion, shadcn/ui
+## Core Philosophy
 
----
+Portfolio OS is built on a **Configuration-First Component Architecture**. The primary objective is to cleanly separate data (content) from presentation (React components) to ensure the portfolio is trivial to update without risking UI regressions.
 
-## 1. Architectural Overview
+## 1. Data Layer (The Configs)
 
-Portfolio OS v1.0 is engineered following **Clean Architecture** and **Domain-Driven Design** principles, enforcing strict separation of concerns across presentation, state management, configuration, observability, and domain services.
+All data rendered in the application originates from `src/config/` and section-specific `-config.ts` files.
 
-```
-src/
-├── animations/         # Framer Motion reusable animation variants
-├── assets/             # Static visual assets (icons, vectors, images)
-├── components/
-│   ├── common/         # Domain-agnostic reusable components (SEO, ErrorBoundary, SkipLink)
-│   ├── layout/         # Semantic layout shells (header, main, footer)
-│   ├── sections/       # Portfolio feature sections (future sprint)
-│   └── ui/             # shadcn/ui primitive components
-├── config/             # Environment, site metadata, SEO defaults, routes, and navigation
-├── constants/          # Immutable application tokens and breakpoints
-├── context/            # React context interfaces and definitions
-├── data/               # Static portfolio data sources (future sprint)
-├── hooks/              # Custom reusable React hooks (useTheme, useMediaQuery, useSEO)
-├── lib/                # Third-party wrapper utilities (cn for Tailwind/clsx)
-├── pages/              # Declarative route page containers
-├── providers/          # Global application providers (ThemeProvider, AppProvider)
-├── services/           # Service Container DI registry and structured frontend logging
-├── styles/             # Tailwind CSS entry and theme variable definitions
-├── types/              # Domain TypeScript interfaces and Vite declarations
-└── utils/              # General pure utility functions (date, slugify, debounce)
-```
+- **Single Source of Truth:** `src/config/profile.ts` serves as the root identity. It contains names, roles, and global social links.
+- **Section Configs:** Complex sections (like Projects and Journey) have their own localized config files (`projects-config.ts`).
+- **Immutability:** React components treat config data as immutable readonly states.
 
----
+## 2. Component Layer
 
-## 2. Core Architectural Pillars
+The component layer heavily leverages React 19.
 
-### 2.1 Clean Architecture & Service DI Container
+- **Composition over Inheritance:** Large sections are broken down into granular, single-responsibility components (e.g., `MissionDashboard`, `MissionCard`).
+- **Code Splitting:** Sections rendered "below the fold" are lazy-loaded via `React.lazy()` and wrapped in `<Suspense>` boundaries.
+- **Resilience:** Every major section is wrapped in an `<ErrorBoundary variant="section">`. A crash in one quadrant will not cascade to the root application.
 
-- **Service Container (`src/services/index.ts`)**: Serves as the single Dependency Injection (DI) access point for enterprise observability, telemetry, and future external APIs.
-- **Strict TypeScript 5.7+**: Zero implicit any, strict null checks, full module interop, and clean Vite bundler resolution.
-- **Path Aliases**: Consistent `@/*` prefixes mapped across TypeScript (`tsconfig.app.json`) and Vite (`vite.config.ts`).
+## 3. Styling & Design System
 
-### 2.2 Accessibility (a11y) — WCAG 2.1 AAA Standard
+- **Tailwind CSS Engine:** Uses strict utility classes.
+- **Glassmorphism Constants:** Highly reused utilities like `card-cyber`, `glass-card`, and `glass-panel` are abstracted in `index.css` to prevent DOM clutter and enforce design consistency.
+- **Dark Mode Native:** The application is exclusively dark mode to match a cybersecurity aesthetic.
 
-- **Skip Navigation (`SkipLink.tsx`)**: Visually hidden skip link for keyboard users jumping directly to `#main-content`.
-- **Semantic Landmark Roles**: AppLayout implements explicit `<header role="banner">`, `<main id="main-content" role="main">`, and `<footer role="contentinfo">`.
-- **Accessible Fault Isolation**: `ErrorBoundary.tsx` implements `role="alert"`, `aria-live="assertive"`, and clear keyboard focus indicators.
+## 4. Performance & UX
 
-### 2.3 Rich SEO & Structured Data Architecture
+- **Framer Motion:** Centralized variants in `src/animations/variants.ts` ensure unified motion language. The app respects OS-level `prefers-reduced-motion` globally via `<MotionConfig>`.
+- **Memoization:** High-frequency rendering paths (like project filtering and skill interactions) are optimized with `React.memo` and `useMemo`.
 
-- **JSON-LD Schema (`getPersonJSONLD()`)**: Automatically injects schema.org `"@type": "Person"` structured data for rich Google Search indexing.
-- **Canonical URL Synchronization**: Synchronizes document titles, descriptions, keywords, Open Graph, Twitter cards, and `<link rel="canonical" />` on route transitions.
+## 5. Deployment & Edge
 
-### 2.4 Styling & Dynamic Theming System
-
-- **Tailwind CSS & shadcn/ui**: Built on CSS variables (`hsl(var(--primary))`, etc.) supporting light, dark, and system preference detection via `ThemeProvider`.
-- **Responsive Breakpoints**: Custom breakpoint hooks (`useMediaQuery`, `useBreakpoint`) aligned with Tailwind tokens (`xs` through `3xl`).
-
----
-
-## 3. Development Workflow
-
-```bash
-# Start local development server
-npm run dev
-
-# Run TypeScript type checking and Vite production build
-npm run build
-
-# Run ESLint validation
-npm run lint
-
-# Format codebase with Prettier
-npm run format
-```
-
----
-
-## 4. Vercel Deployment Architecture
-
-The project includes a production-ready `vercel.json` configured for:
-
-- SPA routing rewrites (`/(.*)` -> `/index.html`)
-- Strict HTTP security headers (`Strict-Transport-Security`, `Permissions-Policy`, `X-Content-Type-Options`, `X-Frame-Options`, `Referrer-Policy`)
-- Immutable caching rules for static assets (`/assets/*`) and favicon verification
+- Designed for **Vercel Edge Network**.
+- Employs static asset caching and strict security headers via `vercel.json`.

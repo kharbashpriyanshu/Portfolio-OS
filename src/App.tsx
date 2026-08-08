@@ -1,5 +1,5 @@
 import React from "react";
-import { AppProvider } from "@/providers/AppProvider";
+import { AppProvider } from "./providers/AppProvider";
 
 /**
  * Root Application component.

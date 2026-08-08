@@ -2,44 +2,46 @@ export const MISSION_CONFIG = {
   heading: "Mission Control",
   label: "ABOUT",
   introduction: [
-    "I engineer systems with a security-first mindset. My passion lies in bridging the gap between offensive security research and building robust, scalable applications.",
-    "Driven by continuous learning, I leverage AI responsibly to accelerate development while ensuring I deeply understand every layer of the architecture.",
+    "My engineering philosophy is rooted in continuous, evidence-based learning and hands-on laboratory environments. From my ongoing B.Tech studies to my ethical hacking internship at iStudio, I focus on deeply understanding systems to better secure them.",
+    "I specialize in the intersection of offensive security research and secure software development. By engineering tools like LogSentry and PortIntel, I actively apply threat detection, automation, and zero-trust AppSec principles to solve complex infrastructure challenges.",
   ],
   cards: [
     {
-      id: "security-research",
-      title: "Security Research",
+      id: "soc-threat-detection",
+      title: "SOC & Threat Detection",
       description:
-        "Driven by curiosity to uncover vulnerabilities, analyze threats, and implement defensive security protocols.",
+        "Analyzing logs, identifying network anomalies, and proactively monitoring infrastructure to detect and mitigate potential security incidents.",
       icon: "ShieldAlert",
     },
     {
-      id: "software-engineering",
-      title: "Software Engineering",
+      id: "application-security",
+      title: "Application Security",
       description:
-        "Building resilient, production-ready applications with modern architectures and clean, maintainable codebases.",
+        "Building resilient systems and integrating secure coding practices to protect applications from modern vulnerabilities and exploits.",
       icon: "Code2",
     },
     {
-      id: "ai-development",
-      title: "AI Assisted Development",
+      id: "automation-python",
+      title: "Automation & Python",
       description:
-        "Responsibly utilizing AI tools to accelerate workflows while maintaining strict comprehension of the underlying implementations.",
-      icon: "Bot",
+        "Developing custom Python scripts and automation pipelines to streamline security workflows and enhance operational efficiency.",
+      icon: "Terminal",
     },
     {
-      id: "continuous-growth",
-      title: "Continuous Growth",
+      id: "problem-solving",
+      title: "Complex Problem Solving",
       description:
-        "Committed to lifelong learning through hackathons, certifications, internships, and self-directed projects.",
-      icon: "TrendingUp",
+        "Applying analytical thinking and engineering principles to architect secure solutions for intricate technical challenges.",
+      icon: "BrainCircuit",
     },
   ],
-  metrics: [
-    { label: "Projects Built", value: "15+" },
-    { label: "Internships", value: "2" },
-    { label: "Technologies", value: "20+" },
-    { label: "Certifications", value: "4" },
-    { label: "GitHub Repositories", value: "35+" },
+  currentOperations: [
+    { label: "Currently Building", value: "Portfolio OS" },
+    { label: "Current Internship", value: "iStudio (Ethical Hacking)" },
+    { label: "Current Learning", value: "TryHackMe Junior Pentester" },
+    { label: "CGPA", value: "8.00 / 10.00" },
+    { label: "Upcoming Project", value: "VisionShield X" },
+    { label: "Latest Achievement", value: "LogSentry (116/116 Tests)" },
+    { label: "Future Goal", value: "Security Engineer Role" },
   ],
 };

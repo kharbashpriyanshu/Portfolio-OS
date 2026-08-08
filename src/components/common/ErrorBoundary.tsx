@@ -1,9 +1,11 @@
 import React, { Component, type ErrorInfo, type ReactNode } from "react";
+import { AlertCircle, RefreshCw } from "lucide-react";
 import logger from "@/services/logger";
 
 interface ErrorBoundaryProps {
   children: ReactNode;
   fallback?: ReactNode;
+  variant?: "full" | "section";
 }
 
 interface ErrorBoundaryState {
@@ -32,29 +34,47 @@ export class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundarySt
   }
 
   render(): ReactNode {
+    const { variant = "full" } = this.props;
+
     if (this.state.hasError) {
       if (this.props.fallback) {
         return this.props.fallback;
       }
 
+      const isSection = variant === "section";
+
+      const containerClasses = isSection
+        ? "flex flex-col items-center justify-center rounded-lg border border-destructive/30 bg-destructive/5 p-8 text-foreground min-h-[300px] w-full"
+        : "flex min-h-screen flex-col items-center justify-center bg-background p-6 text-foreground";
+
       return (
-        <div
-          role="alert"
-          aria-live="assertive"
-          className="flex min-h-screen flex-col items-center justify-center bg-background p-6 text-foreground"
-        >
-          <div className="max-w-md text-center">
-            <h1 className="text-2xl font-bold tracking-tight">Application Error</h1>
+        <div role="alert" aria-live="assertive" className={containerClasses}>
+          <div className="flex max-w-md flex-col items-center text-center">
+            <div className="mb-4 rounded-full bg-destructive/10 p-3 text-destructive">
+              <AlertCircle className="h-8 w-8" />
+            </div>
+            <h2 className="text-xl font-bold tracking-tight">
+              {isSection ? "Section Failed to Load" : "Application Error"}
+            </h2>
             <p className="mt-2 text-sm text-muted-foreground">
-              An unexpected error occurred while rendering this interface.
+              {isSection
+                ? "An error occurred while rendering this section."
+                : "An unexpected error occurred while rendering this interface."}
             </p>
             <button
               type="button"
-              onClick={() => window.location.reload()}
-              aria-label="Reload application page"
-              className="mt-6 rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-opacity hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+              onClick={() => {
+                if (isSection) {
+                  this.setState({ hasError: false, error: null });
+                } else {
+                  window.location.reload();
+                }
+              }}
+              aria-label="Reload content"
+              className="mt-6 flex items-center gap-2 rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-opacity hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
             >
-              Reload Application
+              <RefreshCw className="h-4 w-4" />
+              {isSection ? "Try Again" : "Reload Application"}
             </button>
           </div>
         </div>

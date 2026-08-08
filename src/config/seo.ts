@@ -1,5 +1,6 @@
 import type { SEOConfig } from "@/types";
 import siteConfig from "@/config/site";
+import { PROFILE_CONFIG } from "@/config/profile";
 
 export interface JSONLDSchema {
   "@context": "https://schema.org";
@@ -43,7 +44,7 @@ export function getPersonJSONLD(): JSONLDSchema {
     name: siteConfig.author,
     url: siteConfig.url,
     description: siteConfig.description,
-    jobTitle: "Cyber Security Engineer",
+    jobTitle: PROFILE_CONFIG.headline,
     sameAs: Object.values(siteConfig.links).filter(Boolean) as string[],
   };
 }

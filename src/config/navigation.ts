@@ -1,4 +1,5 @@
 import type { NavigationItem } from "@/types";
+import { PROFILE_CONFIG } from "@/config/profile";
 
 /**
  * Scalable navigation configuration for header menus, footer links, and social links.
@@ -37,8 +38,8 @@ export const MAIN_NAVIGATION: NavigationItem[] = [
 ];
 
 export const SOCIAL_LINKS = {
-  github: "https://github.com/Priyanshu-Kharbash",
-  linkedin: "https://linkedin.com/in/Priyanshu-Kharbash",
+  github: PROFILE_CONFIG.socials.github,
+  linkedin: PROFILE_CONFIG.socials.linkedin,
 } as const;
 
 export const FOOTER_LINKS: NavigationItem[] = [

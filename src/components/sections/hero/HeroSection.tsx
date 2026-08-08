@@ -4,6 +4,7 @@ import { Terminal } from "./Terminal";
 import { HeroBackground } from "./HeroBackground";
 import { Button } from "@/components/ui/button";
 import { Download, ArrowRight, Shield, Code, Terminal as TerminalIcon } from "lucide-react";
+import { PROFILE_CONFIG } from "@/config/profile";
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -50,7 +51,7 @@ export function HeroSection() {
               variants={itemVariants}
               className="text-5xl md:text-6xl lg:text-7xl font-bold font-heading tracking-tight text-foreground"
             >
-              Priyanshu Kharbash
+              {PROFILE_CONFIG.name}
             </motion.h1>
 
             <motion.div
@@ -59,36 +60,44 @@ export function HeroSection() {
             >
               <div className="flex items-center gap-2">
                 <Shield className="w-4 h-4 text-cyber-blue" />
-                <span>Cybersecurity Engineering Student</span>
+                <span>{PROFILE_CONFIG.roles[0]}</span>
               </div>
               <div className="flex items-center gap-2">
                 <TerminalIcon className="w-4 h-4 text-cyber-amber" />
-                <span>Security Research Enthusiast</span>
+                <span>{PROFILE_CONFIG.roles[1]}</span>
               </div>
               <div className="flex items-center gap-2">
                 <Code className="w-4 h-4 text-cyber-emerald" />
-                <span>Full Stack Developer</span>
+                <span>{PROFILE_CONFIG.roles[2]}</span>
               </div>
             </motion.div>
           </div>
 
           <motion.p
             variants={itemVariants}
-            className="text-lg text-foreground-subtle max-w-lg leading-relaxed"
+            className="text-lg text-foreground-subtle max-w-lg leading-relaxed text-justify"
           >
-            Building secure, scalable, and beautifully designed digital experiences. Passionate
-            about bridging the gap between offensive security research and robust engineering
-            principles.
+            {PROFILE_CONFIG.biography}
           </motion.p>
 
           <motion.div variants={itemVariants} className="flex flex-wrap items-center gap-4 pt-4">
-            <Button size="lg" variant="cyber" className="group">
-              <Download className="w-4 h-4 mr-2 transition-transform group-hover:-translate-y-1" />
-              Download Resume
+            <Button size="lg" variant="cyber" className="group" asChild>
+              <a href={PROFILE_CONFIG.resumeUrl} target="_blank" rel="noopener noreferrer">
+                <Download className="w-4 h-4 mr-2 transition-transform group-hover:-translate-y-1" />
+                Download Resume
+              </a>
             </Button>
-            <Button size="lg" variant="outline" className="group">
-              View Projects
-              <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" />
+            <Button size="lg" variant="outline" className="group" asChild>
+              <a
+                href="#projects"
+                onClick={(e) => {
+                  e.preventDefault();
+                  document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" });
+                }}
+              >
+                View Projects
+                <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" />
+              </a>
             </Button>
           </motion.div>
         </motion.div>

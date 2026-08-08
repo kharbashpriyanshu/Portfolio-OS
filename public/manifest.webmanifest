@@ -1,0 +1,17 @@
+{
+  "name": "Portfolio OS | Priyanshu Kharbash",
+  "short_name": "Portfolio OS",
+  "description": "Cyber Security Engineer, AI Security Developer, and Digital Forensics Enthusiast portfolio engineered by Priyanshu Kharbash.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#09090b",
+  "theme_color": "#00ddff",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

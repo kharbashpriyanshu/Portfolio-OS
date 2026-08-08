@@ -3,7 +3,8 @@ import { motion } from "framer-motion";
 import { useTerminal } from "@/hooks/useTerminal";
 
 export function Terminal() {
-  const { lines, input, setInput, submitCommand, terminalEndRef } = useTerminal();
+  const { lines, input, setInput, submitCommand, handleKeyDown, terminalEndRef, isBooting } =
+    useTerminal();
   const inputRef = React.useRef<HTMLInputElement>(null);
 
   return (
@@ -11,7 +12,7 @@ export function Terminal() {
       initial={{ opacity: 0, scale: 0.95 }}
       animate={{ opacity: 1, scale: 1 }}
       transition={{ duration: 0.5, delay: 0.2 }}
-      className="w-full max-w-lg mx-auto rounded-xl overflow-hidden border border-border-subtle bg-surface-card shadow-glass-lg backdrop-blur-md flex flex-col font-mono text-sm group"
+      className="glass-card w-full max-w-lg mx-auto overflow-hidden flex flex-col font-mono text-sm group"
       onClick={() => inputRef.current?.focus()}
     >
       {/* Top Bar */}
@@ -35,8 +36,22 @@ export function Terminal() {
                 <span>❯</span>
                 <span className="text-foreground">{line.content}</span>
               </div>
+            ) : line.type === "boot" ? (
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                className="text-cyber-blue font-semibold ml-4"
+              >
+                [sys]: {line.content}
+              </motion.div>
             ) : (
-              <div className="text-foreground-muted ml-4">{line.content}</div>
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                className="text-foreground-muted ml-4"
+              >
+                {line.content}
+              </motion.div>
             )}
           </div>
         ))}
@@ -49,10 +64,13 @@ export function Terminal() {
             type="text"
             value={input}
             onChange={(e) => setInput(e.target.value)}
-            className="flex-1 bg-transparent outline-none text-foreground border-none focus:ring-0 p-0 m-0 caret-cyber-emerald"
+            onKeyDown={handleKeyDown}
+            disabled={isBooting}
+            className="flex-1 bg-transparent outline-none text-foreground border-none focus:ring-0 p-0 m-0 caret-cyber-emerald disabled:opacity-50"
             spellCheck={false}
             autoComplete="off"
             aria-label="Terminal input"
+            placeholder={isBooting ? "Loading system..." : ""}
           />
         </form>
         <div ref={terminalEndRef} />

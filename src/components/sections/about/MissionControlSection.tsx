@@ -33,7 +33,7 @@ export function MissionControlSection() {
             {MISSION_CONFIG.heading}
           </h2>
 
-          <div className="max-w-2xl space-y-4 text-base leading-relaxed text-muted-foreground sm:text-lg">
+          <div className="max-w-2xl space-y-4 text-base leading-relaxed text-muted-foreground sm:text-lg text-justify">
             {MISSION_CONFIG.introduction.map((paragraph, idx) => (
               <p key={`intro-${idx}`}>{paragraph}</p>
             ))}

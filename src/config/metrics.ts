@@ -13,8 +13,8 @@ export interface RecruiterMetric {
 export const RECRUITER_METRICS: RecruiterMetric[] = [
   {
     id: "metric-1",
-    label: "Flagship Case Studies",
-    value: "3+",
+    label: "Completed Projects",
+    value: "4",
     detail: "Production-ready security & AI platforms",
     highlight: true,
   },
@@ -33,9 +33,9 @@ export const RECRUITER_METRICS: RecruiterMetric[] = [
   },
   {
     id: "metric-4",
-    label: "Years in Linux & Systems",
-    value: "3+",
-    detail: "Hands-on POSIX, kernel hardening & network security",
+    label: "University",
+    value: "RRU",
+    detail: "Rashtriya Raksha University",
   },
 ];
 

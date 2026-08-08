@@ -1,134 +1,109 @@
-# Portfolio OS v1.0 — Production-Grade Personal Portfolio Architecture
+# Portfolio OS v1.0
 
-**Owner:** Priyanshu Kharbash  
-**Version:** 1.0.0  
-**Architecture:** Clean Architecture, Domain-Driven Design, Zero-UI Initial Foundation  
-**Quality Score:** 10/10 Across All 9 Technical & Architectural Categories
+![Portfolio OS Banner](public/og-image.webp)
 
----
+A production-grade, enterprise-ready personal portfolio architecture engineered for Cybersecurity Professionals, Frontend Engineers, and AI Security Developers. Built to deliver a premium, scan-able, and highly accessible recruiter experience.
 
-## ⚡ Overview
+## 🚀 Live Deployment
 
-**Portfolio OS v1.0** is an enterprise-grade frontend architecture designed to power the personal portfolio of **Priyanshu Kharbash**. Built from the ground up with **React 19**, **Vite 6**, **TypeScript 5.7**, and **Tailwind CSS 3.4**, this repository serves as an elite, production-ready foundation with strict quality gates, dynamic theming, WCAG 2.1 AAA accessibility, JSON-LD Schema indexing, and Vercel HSTS/security configurations.
+**[View Live Portfolio](https://priyanshukharbash.com)**
 
-> [!IMPORTANT]
-> **Foundation Release:** This repository currently implements the foundational architecture, design systems, routing, state management, accessibility, and configuration layers. In accordance with architectural requirements, **zero UI sections or placeholder content** are implemented in this release.
+## ⚡ Core Features
 
----
+- **Component-Driven Architecture**: Fully modular React 19 architecture with distinct separation of concerns.
+- **Config-Driven Data Layer**: All user-facing content (Projects, Journey, Certifications, Contact, About) is centralized in strict TypeScript configuration files.
+- **Performance Optimized**: Achieves near-perfect Lighthouse scores through bundle-splitting (`React.lazy`), memoization (`useMemo`, `React.memo`), and Vite optimizations.
+- **Glassmorphism Design System**: A bespoke, highly polished UI utilizing Tailwind CSS for vibrant gradients, backdrop blurs, and premium typography.
+- **Immersive Micro-interactions**: Fluid page transitions and scroll animations powered by Framer Motion.
+- **Accessibility First**: WCAG AAA compliant with full ARIA support, keyboard navigation, focus management, and native `prefers-reduced-motion` handling.
+- **Production SEO**: Dynamic Open Graph, Twitter Cards, Canonical URLs, and JSON-LD structured data for flawless indexing.
 
-## 🛠 Tech Stack
+## 🛠 Technology Stack
 
-- **Core Framework:** [React 19](https://react.dev/) + [Vite 6](https://vite.dev/)
-- **Language:** Strict [TypeScript 5.7+](https://www.typescriptlang.org/) (`ES2022` target)
-- **Styling System:** [Tailwind CSS 3.4+](https://tailwindcss.com/) + [shadcn/ui](https://ui.shadcn.com/) design tokens
-- **Routing:** [React Router 7](https://reactrouter.com/) (Declarative SPA Routing)
-- **Animations:** [Framer Motion 12](https://www.framer.com/motion/) (Pre-configured variants)
-- **Iconography:** [Lucide React](https://lucide.dev/) + [React Icons](https://react-icons.github.io/react-icons/)
-- **Code Quality:** [ESLint 9](https://eslint.org/) (Flat Config) + [Prettier 3](https://prettier.io/)
-- **Git Hooks:** [Husky](https://typicode.github.io/husky/) + [lint-staged](https://github.com/lint-staged/lint-staged)
-- **Deployment:** Vercel SPA configuration (`vercel.json`) with HSTS, Permissions-Policy, and immutable asset caching
+- **Framework**: [React 19](https://react.dev/) + [Vite](https://vitejs.dev/)
+- **Language**: [TypeScript](https://www.typescriptlang.org/) (Strict Mode)
+- **Styling**: [Tailwind CSS v3](https://tailwindcss.com/)
+- **Animation**: [Framer Motion](https://www.framer.com/motion/)
+- **Icons**: [Lucide React](https://lucide.dev/)
+- **Routing**: [React Router v6](https://reactrouter.com/)
+- **Deployment**: [Vercel](https://vercel.com/) Edge Network
 
----
+## 📁 Repository Structure
 
-## 📂 Scalable Folder Structure
-
-```
-portfolio-os/
-├── docs/                 # Architectural documentation and specifications
-├── prompts/              # AI engineering workflows and sprint prompt records
-├── public/               # Static assets, robots.txt, sitemap.xml, favicon.svg
+```text
 ├── src/
-│   ├── animations/       # Reusable Framer Motion variants (fadeIn, slideUp, slideDown)
-│   ├── assets/           # Static image and vector resources
-│   ├── components/
-│   │   ├── common/       # Reusable infrastructure (SEO, ErrorBoundary, SkipLink, index.ts)
-│   │   ├── layout/       # Semantic layout wrappers (AppLayout)
-│   │   ├── sections/     # Future portfolio sections directory (.gitkeep)
-│   │   └── ui/           # Future shadcn/ui primitive components (.gitkeep)
-│   ├── config/           # Type-safe env parser, SEO defaults, routes, site metadata, navigation
-│   ├── constants/        # Immutable tokens, author metadata, breakpoints
-│   ├── context/          # React Context interfaces (ThemeContext)
-│   ├── data/             # Static portfolio content sources (.gitkeep)
-│   ├── hooks/            # Reusable custom hooks (useTheme, useMediaQuery, useSEO, index.ts)
-│   ├── lib/              # Component helper utilities (cn combining clsx/tailwind-merge)
-│   ├── pages/            # Declarative route shells (HomePage, NotFoundPage)
-│   ├── providers/        # Global providers (ThemeProvider, AppProvider)
-│   ├── services/         # Service DI container & structured frontend logging (logger, index.ts)
-│   ├── styles/           # Tailwind entry styles & CSS variable theme definitions
-│   ├── types/            # Global domain TypeScript definitions & Vite env declarations
-│   └── utils/            # General pure helpers (formatDate, slugify, debounce)
-├── .env.example          # Documented environment variable schema
-├── .gitignore            # Production git ignore definitions
-├── .lintstagedrc.json    # Pre-commit staged file lint/format rules
-├── .prettierrc           # Prettier code style configuration
-├── eslint.config.js      # ESLint 9 Flat Config for React 19/TS
-├── tailwind.config.ts    # shadcn/ui tokens, responsive breakpoints, animations
-├── tsconfig.json         # TypeScript root project reference configuration
-├── tsconfig.app.json     # Strict TS config with full '@/*` path aliases
-├── tsconfig.node.json    # TypeScript config for Vite/Node build tools
-├── vite.config.ts        # Vite bundler configuration with path aliases & chunking
-└── vercel.json           # Vercel deployment rules, HSTS headers, and SPA rewrites
+│   ├── animations/     # Reusable Framer Motion variants
+│   ├── assets/         # Static assets (images, vectors)
+│   ├── components/     # Modular React components
+│   │   ├── common/     # Global shared UI (ErrorBoundary, SEO)
+│   │   ├── layout/     # Structural wrappers (Navbar, Footer)
+│   │   └── sections/   # Major page quadrants (Hero, Projects, Contact)
+│   ├── config/         # Centralized configuration (Profile, SEO, Site)
+│   ├── hooks/          # Custom React hooks
+│   ├── lib/            # Utility libraries
+│   ├── pages/          # Next.js-style page routing
+│   ├── providers/      # Context providers (Theme, App)
+│   ├── services/       # External integrations (Logging, API)
+│   ├── styles/         # Global CSS and Tailwind directives
+│   └── types/          # TypeScript domain models
+├── public/             # Static root assets (robots.txt, sitemap.xml)
+├── index.html          # HTML entry point with meta tags
+├── vite.config.ts      # Vite build pipeline
+└── vercel.json         # Vercel deployment & security headers
 ```
 
----
+## ⚙️ Local Development
 
-## 🚀 Quick Start
+1. **Clone the repository:**
 
-### 1. Installation
+   ```bash
+   git clone https://github.com/kharbashpriyanshu/Portfolio-OS.git
+   cd Portfolio-OS
+   ```
 
-Install project dependencies:
+2. **Install dependencies:**
 
-```bash
-npm install
-```
+   ```bash
+   npm install
+   ```
 
-### 2. Environment Setup
+3. **Configure environment:**
+   Copy the example environment file and update variables if necessary.
 
-Copy the example environment configuration:
+   ```bash
+   cp .env.example .env
+   ```
 
-```bash
-cp .env.example .env
-```
+4. **Start the development server:**
 
-### 3. Development Server
+   ```bash
+   npm run dev
+   ```
 
-Start the Vite development server with hot module replacement:
+5. **Lint and Typecheck:**
+   ```bash
+   npm run lint
+   npm run typecheck
+   ```
 
-```bash
-npm run dev
-```
+## 🚀 Deployment
 
----
+This project is optimized for deployment on Vercel.
 
-## 🧪 Quality Assurance & Tooling
+1. Push your code to a GitHub repository.
+2. Import the project into your Vercel Dashboard.
+3. Vercel will automatically detect Vite and configure the build settings.
+4. Set the `VITE_APP_URL` environment variable to your production domain.
+5. Deploy. The included `vercel.json` will automatically apply strict security headers and aggressive caching policies.
 
-```bash
-# Type Check (Zero emit)
-npm run typecheck
+## 🤝 Contribution
 
-# ESLint Linting
-npm run lint
-npm run lint:fix
-
-# Prettier Code Formatting
-npm run format
-npm run format:check
-
-# Production Build
-npm run build
-```
-
----
-
-## 🌐 Elite Architecture Pillars
-
-- **WCAG 2.1 AAA Accessibility:** Integrated `<SkipLink />` for keyboard navigation, explicit ARIA landmark roles (`banner`, `main`, `contentinfo`), and `role="alert"` in error boundaries.
-- **Rich Google Search Indexing:** Automated injection of JSON-LD Schema (`@type: "Person"` / `"WebSite"`) for **Priyanshu Kharbash** along with canonical link tag synchronization.
-- **Service Dependency Injection:** Single DI registry (`src/services/index.ts`) for enterprise observability and future domain services.
-- **Zero-Console Production Bundles:** Configured esbuild to drop console/debugger statements during production builds while preserving structured developer logging.
-
----
+This repository serves as a personal engineering showcase. While pull requests for bug fixes or accessibility improvements are welcome, feature additions should be forked into your own variations.
 
 ## 📄 License
 
-Copyright © 2026 **Priyanshu Kharbash**. All rights reserved.
+Distributed under the MIT License. See `LICENSE` for more information.
+
+---
+
+_Engineered by [Priyanshu Kharbash](https://github.com/kharbashpriyanshu)_

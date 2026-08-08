@@ -1,13 +1,15 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { MISSION_CONFIG } from "./mission-config";
-import { ShieldAlert, Code2, Bot, TrendingUp } from "lucide-react";
+import { ShieldAlert, Code2, Bot, TrendingUp, Terminal, BrainCircuit } from "lucide-react";
 
 const ICON_MAP = {
   ShieldAlert: ShieldAlert,
   Code2: Code2,
   Bot: Bot,
   TrendingUp: TrendingUp,
+  Terminal: Terminal,
+  BrainCircuit: BrainCircuit,
 };
 
 interface MissionCardProps {
@@ -24,7 +26,7 @@ export function MissionCard({ card, index }: MissionCardProps) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-50px" }}
       transition={{ duration: 0.5, delay: index * 0.1, ease: "easeOut" }}
-      className="group relative overflow-hidden rounded-2xl border border-border/50 bg-surface-card/40 p-6 backdrop-blur-md transition-all hover:border-primary/40 hover:bg-surface-card/60 hover:shadow-glass-sm"
+      className="card-cyber group p-6"
     >
       <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
 
@@ -37,7 +39,9 @@ export function MissionCard({ card, index }: MissionCardProps) {
           <h3 className="mb-2 font-heading text-lg font-bold tracking-tight text-foreground">
             {card.title}
           </h3>
-          <p className="text-sm leading-relaxed text-muted-foreground">{card.description}</p>
+          <p className="text-sm leading-relaxed text-muted-foreground text-justify">
+            {card.description}
+          </p>
         </div>
       </div>
     </motion.div>
