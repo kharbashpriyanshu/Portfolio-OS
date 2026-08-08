@@ -74,6 +74,30 @@ export function SkillsIntelligenceSection() {
             </div>
           </div>
         </div>
+
+        {/* Engineering Philosophy */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.5, delay: 0.2, ease: "easeOut" }}
+          className="mt-16 sm:mt-20 w-full rounded-2xl border border-primary/20 bg-surface/30 p-8 sm:p-10 backdrop-blur-sm"
+        >
+          <h3 className="mb-4 font-heading text-xl font-bold tracking-tight text-foreground sm:text-2xl">
+            Engineering Philosophy
+          </h3>
+          <div className="flex flex-col gap-3 text-sm sm:text-base leading-relaxed text-muted-foreground">
+            <p>
+              Rather than measuring skills using percentages, I prefer demonstrating my abilities
+              through practical engineering projects, secure software development, internships,
+              technical documentation, and continuous learning.
+            </p>
+            <p>
+              Every technology listed above has been explored through real implementation,
+              experimentation, or structured learning.
+            </p>
+          </div>
+        </motion.div>
       </div>
     </section>
   );

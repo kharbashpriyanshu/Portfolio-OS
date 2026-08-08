@@ -7,8 +7,9 @@ interface TerminalLine {
 }
 
 const COMMANDS: Record<string, string> = {
-  help: "Available commands:\n  help         - Show this message\n  whoami       - Display current user\n  skills       - List technical skills\n  experience   - View work history\n  education    - View academic details\n  projects     - Show flagship projects\n  certifications- List active certs\n  internship   - Current roles\n  resume       - Get resume link\n  github       - Show GitHub profile\n  linkedin     - Show LinkedIn profile\n  roadmap      - Future project vision\n  current      - What I am building now\n  contact      - Show contact info\n  clear        - Clear terminal output",
-  whoami: "guest@portfolio-os\nAccess Level: Recruiter / Visitor\nClearance: GRANTED",
+  help: "Available Commands\nhelp\nwhoami\nprojects\nskills\nexperience\neducation\ncertifications\ncurrent\ngithub\nlinkedin\nresume\ncontact\nroadmap\nclear",
+  whoami:
+    "Name\nPriyanshu Kharbash\n\nRole\nCybersecurity Engineering Student\n\nCurrent Focus\nSecurity Engineering\nDetection Engineering\nNetwork Security\nSecure Software Development\n\nStatus\nOpen to Internship Opportunities",
   skills:
     "> Security: Threat Detection, VAPT, AppSec, OSINT\n> Backend: Python, FastAPI, PostgreSQL\n> Frontend: React, TypeScript, Tailwind\n> DevOps/Tools: Git, Docker, Linux",
   experience:
@@ -21,18 +22,22 @@ const COMMANDS: Record<string, string> = {
   resume: "> Initializing secure download...\n> Click the 'Download Resume' button in the UI.",
   github: "> github.com/kharbashpriyanshu",
   linkedin: "> LinkedIn profile currently unavailable.",
-  roadmap: "> VisionShield X\n> NetGuardian AI\n> S.H.I.E.L.D.",
-  current: "> Building Portfolio OS v1.0\n> Ethical Hacking Internship",
+  roadmap:
+    "Engineering Roadmap\n\nCompleted\n• LogSentry\n• PortIntel\n• Academic Resource Hub\n\nPlanned\n• VisionShield X\n• NetGuardian AI\n• S.H.I.E.L.D.",
+  current:
+    "Current Internship\nEthical Hacking Intern\niStudio\n\nCurrent Project\nLogSentry\n\nCurrent Learning\nDetection Engineering\nNetwork Security\n\nCurrent Goal\nBuild production-ready cybersecurity solutions.",
   contact: "Email: kharbashpriyanshu@gmail.com\nGitHub: github.com/kharbashpriyanshu",
 };
 
 const BOOT_SEQUENCE = [
-  "Initializing Kernel...",
-  "Loading secure modules...",
-  "Mounting encrypted filesystems...",
-  "Establishing secure connection...",
-  "Portfolio OS v1.0 Online.",
-  "Type 'help' to see available commands.",
+  "Initializing Portfolio OS...",
+  "Loading Security Modules.................OK",
+  "Loading Engineering Projects.............OK",
+  "Loading Knowledge Base...................OK",
+  "Loading Detection Engine.................OK",
+  "Loading Portfolio........................OK",
+  "System Status............................ONLINE",
+  'Type "help" to begin.',
 ];
 
 export function useTerminal() {

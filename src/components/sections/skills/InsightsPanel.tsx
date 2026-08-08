@@ -1,25 +1,11 @@
 import React from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { SkillCategory, Technology, SkillLevel } from "./skills-config";
-import { Terminal, Lightbulb, Rocket, FolderGit2 } from "lucide-react";
+import { SkillCategory } from "./skills-config";
+import { Terminal, Lightbulb } from "lucide-react";
 
 interface InsightsPanelProps {
   category: SkillCategory;
 }
-
-const LEVEL_COLORS: Record<SkillLevel, string> = {
-  "Core Skills": "border-cyber-emerald/40 bg-cyber-emerald/10 text-cyber-emerald",
-  "Hands-on Experience": "border-cyber-blue/40 bg-cyber-blue/10 text-cyber-blue",
-  "Working Knowledge": "border-cyber-amber/40 bg-cyber-amber/10 text-cyber-amber",
-  "Currently Learning": "border-muted/40 bg-muted/10 text-muted-foreground",
-};
-
-const TechnologyBadge = React.memo(({ tech }: { tech: Technology }) => (
-  <div className={`flex flex-col gap-1.5 rounded-lg border p-3 ${LEVEL_COLORS[tech.level]}`}>
-    <span className="font-heading text-sm font-bold">{tech.name}</span>
-    <span className="font-mono text-[10px] uppercase tracking-wider opacity-80">{tech.level}</span>
-  </div>
-));
 
 export const InsightsPanel = React.memo(function InsightsPanel({ category }: InsightsPanelProps) {
   return (
@@ -65,38 +51,16 @@ export const InsightsPanel = React.memo(function InsightsPanel({ category }: Ins
               <h4 className="mb-4 font-mono text-xs font-bold uppercase tracking-widest text-foreground-muted">
                 // ACTIVE TECHNOLOGIES
               </h4>
-              <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 xl:grid-cols-2">
+              <div className="flex flex-wrap gap-3">
                 {category.technologies.map((tech) => (
-                  <TechnologyBadge key={tech.name} tech={tech} />
-                ))}
-              </div>
-            </section>
-
-            {/* Practical Usage */}
-            <section className="rounded-xl border border-border/40 bg-surface/30 p-4">
-              <h4 className="mb-2 flex items-center gap-2 font-heading text-sm font-bold text-foreground">
-                <Rocket className="h-4 w-4 text-cyber-emerald" />
-                Practical Implementation
-              </h4>
-              <p className="text-xs leading-relaxed text-muted-foreground text-justify">
-                {category.practicalUsage}
-              </p>
-            </section>
-
-            {/* Representative Projects */}
-            <section>
-              <h4 className="mb-3 flex items-center gap-2 font-heading text-sm font-bold text-foreground">
-                <FolderGit2 className="h-4 w-4 text-cyber-blue" />
-                Representative Projects
-              </h4>
-              <div className="flex flex-wrap gap-2">
-                {category.representativeProjects.map((project) => (
-                  <span
-                    key={project}
-                    className="rounded-md border border-border/60 bg-surface-elevated px-2.5 py-1 text-xs text-foreground-subtle"
+                  <div
+                    key={tech}
+                    className="flex flex-col justify-center rounded-lg border border-primary/30 bg-primary/5 px-4 py-2 hover:border-primary/60 hover:bg-primary/10 transition-colors"
                   >
-                    {project}
-                  </span>
+                    <span className="font-heading text-sm font-bold text-foreground-subtle">
+                      {tech}
+                    </span>
+                  </div>
                 ))}
               </div>
             </section>

@@ -2,7 +2,15 @@ import React from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ProjectData } from "./types";
 import { ArchitecturePanel } from "./ArchitecturePanel";
-import { Github, ExternalLink, Calendar, CheckCircle2, ShieldAlert } from "lucide-react";
+import {
+  Github,
+  ExternalLink,
+  Calendar,
+  CheckCircle2,
+  ShieldAlert,
+  Settings,
+  Lightbulb,
+} from "lucide-react";
 
 interface ProjectDetailsProps {
   project: ProjectData;
@@ -44,11 +52,13 @@ export const ProjectDetails = React.memo(function ProjectDetails({ project }: Pr
                     {project.category}
                   </span>
                 </div>
-                <div className="flex items-center gap-2 text-xs text-muted-foreground font-mono">
-                  <Calendar className="h-3.5 w-3.5" />
-                  {project.timeline?.start}{" "}
-                  {project.timeline?.end ? `— ${project.timeline.end}` : "— Present"}
-                </div>
+                {project.timeline?.start && (
+                  <div className="flex items-center gap-2 text-xs text-muted-foreground font-mono">
+                    <Calendar className="h-3.5 w-3.5" />
+                    {project.timeline.start}{" "}
+                    {project.timeline.end ? `— ${project.timeline.end}` : "— Present"}
+                  </div>
+                )}
               </div>
 
               <div>
@@ -82,11 +92,24 @@ export const ProjectDetails = React.memo(function ProjectDetails({ project }: Pr
               </div>
             </header>
 
-            {/* Description */}
-            <section>
-              <p className="text-sm leading-relaxed text-muted-foreground text-justify">
-                {project.problem}
-              </p>
+            {/* Overview & Problem Statement */}
+            <section className="flex flex-col gap-6">
+              <div>
+                <h4 className="mb-2 font-mono text-xs font-bold uppercase tracking-widest text-foreground-muted">
+                  // Overview
+                </h4>
+                <p className="text-sm leading-relaxed text-muted-foreground text-justify whitespace-pre-wrap">
+                  {project.overview}
+                </p>
+              </div>
+              <div>
+                <h4 className="mb-2 font-mono text-xs font-bold uppercase tracking-widest text-foreground-muted">
+                  // Problem Statement
+                </h4>
+                <p className="text-sm leading-relaxed text-muted-foreground text-justify whitespace-pre-wrap">
+                  {project.problem}
+                </p>
+              </div>
             </section>
 
             {/* Technologies */}
@@ -106,46 +129,95 @@ export const ProjectDetails = React.memo(function ProjectDetails({ project }: Pr
               </div>
             </section>
 
-            {/* Layout Grid for Features & Challenges */}
-            <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-              <section className="rounded-xl border border-border/40 bg-surface/30 p-5">
-                <h4 className="mb-4 flex items-center gap-2 font-heading text-sm font-bold text-foreground">
-                  <CheckCircle2 className="h-4 w-4 text-cyber-emerald" />
-                  Key Highlights
-                </h4>
-                <ul className="flex flex-col gap-3">
-                  {project.impact &&
-                    project.impact.map((item, idx) => (
-                      <li
-                        key={idx}
-                        className="flex items-start gap-2 text-xs text-muted-foreground"
-                      >
-                        <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-cyber-emerald/70" />
-                        <span className="leading-relaxed">{item}</span>
-                      </li>
-                    ))}
-                </ul>
-              </section>
+            {/* Layout Grid for Features, Engineering, Security, Lessons */}
+            <div className="grid grid-cols-1 gap-6 xl:grid-cols-2">
+              <div className="flex flex-col gap-6">
+                {/* Key Features */}
+                {project.features && project.features.length > 0 && (
+                  <section className="rounded-xl border border-border/40 bg-surface/30 p-5">
+                    <h4 className="mb-4 flex items-center gap-2 font-heading text-sm font-bold text-foreground">
+                      <CheckCircle2 className="h-4 w-4 text-cyber-emerald" />
+                      Key Features
+                    </h4>
+                    <ul className="flex flex-col gap-3">
+                      {project.features.map((item, idx) => (
+                        <li
+                          key={idx}
+                          className="flex items-start gap-2 text-xs text-muted-foreground"
+                        >
+                          <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-cyber-emerald/70" />
+                          <span className="leading-relaxed">{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </section>
+                )}
 
-              {project.challenges && project.challenges.length > 0 && (
-                <section className="rounded-xl border border-border/40 bg-surface/30 p-5">
-                  <h4 className="mb-4 flex items-center gap-2 font-heading text-sm font-bold text-foreground">
-                    <ShieldAlert className="h-4 w-4 text-cyber-amber" />
-                    Engineering Challenges
-                  </h4>
-                  <ul className="flex flex-col gap-3">
-                    {project.challenges.map((item, idx) => (
-                      <li
-                        key={idx}
-                        className="flex items-start gap-2 text-xs text-muted-foreground"
-                      >
-                        <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-cyber-amber/70" />
-                        <span className="leading-relaxed">{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </section>
-              )}
+                {/* Security Considerations */}
+                {project.securityConsiderations && project.securityConsiderations.length > 0 && (
+                  <section className="rounded-xl border border-border/40 bg-surface/30 p-5">
+                    <h4 className="mb-4 flex items-center gap-2 font-heading text-sm font-bold text-foreground">
+                      <ShieldAlert className="h-4 w-4 text-cyber-amber" />
+                      Security Considerations
+                    </h4>
+                    <ul className="flex flex-col gap-3">
+                      {project.securityConsiderations.map((item, idx) => (
+                        <li
+                          key={idx}
+                          className="flex items-start gap-2 text-xs text-muted-foreground"
+                        >
+                          <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-cyber-amber/70" />
+                          <span className="leading-relaxed">{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </section>
+                )}
+              </div>
+
+              <div className="flex flex-col gap-6">
+                {/* Engineering Decisions */}
+                {project.engineeringDecisions && project.engineeringDecisions.length > 0 && (
+                  <section className="rounded-xl border border-border/40 bg-surface/30 p-5">
+                    <h4 className="mb-4 flex items-center gap-2 font-heading text-sm font-bold text-foreground">
+                      <Settings className="h-4 w-4 text-cyber-blue" />
+                      Engineering Decisions
+                    </h4>
+                    <ul className="flex flex-col gap-3">
+                      {project.engineeringDecisions.map((item, idx) => (
+                        <li
+                          key={idx}
+                          className="flex items-start gap-2 text-xs text-muted-foreground"
+                        >
+                          <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-cyber-blue/70" />
+                          <span className="leading-relaxed">{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </section>
+                )}
+
+                {/* Lessons Learned */}
+                {project.lessonsLearned && project.lessonsLearned.length > 0 && (
+                  <section className="rounded-xl border border-border/40 bg-surface/30 p-5">
+                    <h4 className="mb-4 flex items-center gap-2 font-heading text-sm font-bold text-foreground">
+                      <Lightbulb className="h-4 w-4 text-primary" />
+                      Lessons Learned
+                    </h4>
+                    <ul className="flex flex-col gap-3">
+                      {project.lessonsLearned.map((item, idx) => (
+                        <li
+                          key={idx}
+                          className="flex items-start gap-2 text-xs text-muted-foreground"
+                        >
+                          <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-primary/70" />
+                          <span className="leading-relaxed">{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </section>
+                )}
+              </div>
             </div>
 
             {/* Architecture Panel */}

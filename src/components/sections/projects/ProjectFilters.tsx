@@ -13,11 +13,11 @@ interface ProjectFiltersProps {
 
 const CATEGORIES: (ProjectCategory | "All")[] = [
   "All",
-  "Cybersecurity",
-  "Full Stack",
-  "AI",
-  "Research",
-  "Academic",
+  "Security Engineering",
+  "Network Security",
+  "Full Stack Development",
+  "System Utilities",
+  "Software Engineering",
 ];
 const STATUSES: (ProjectStatus | "All")[] = ["All", "Completed", "In Progress", "Archived"];
 

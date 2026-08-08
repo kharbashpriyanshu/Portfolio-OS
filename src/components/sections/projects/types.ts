@@ -1,5 +1,15 @@
 export type ProjectCategory =
-  "Cybersecurity" | "Full Stack" | "AI" | "Research" | "Academic" | "Innovation Roadmap";
+  | "Security Engineering"
+  | "Network Security"
+  | "Full Stack Development"
+  | "System Utilities"
+  | "Software Engineering"
+  | "Cybersecurity"
+  | "Full Stack"
+  | "AI"
+  | "Research"
+  | "Academic"
+  | "Innovation Roadmap";
 export type ProjectStatus = "Completed" | "In Progress" | "Planned" | "Archived";
 
 export interface ArchitectureLayer {
@@ -21,23 +31,25 @@ export interface ProjectData {
   featured: boolean;
 
   // Case Study Fields
+  overview: string;
   problem: string;
-  architecture: ArchitectureLayer[];
-  screenshots: string[];
+  features: string[];
+  architecture?: ArchitectureLayer[];
+  screenshots?: string[];
   engineeringDecisions: string[];
-  challenges: string[];
-  securityConsiderations: string[];
+  challenges?: string[];
+  securityConsiderations?: string[];
   lessonsLearned: string[];
-  futureRoadmap: string[];
+  futureRoadmap?: string[];
 
   // Metadata
   github?: string;
   demo?: string;
   technologies: string[];
-  timeline: {
+  timeline?: {
     start: string;
     end?: string;
   };
-  impact: string[];
-  metrics: ProjectMetric[];
+  impact?: string[];
+  metrics?: ProjectMetric[];
 }
