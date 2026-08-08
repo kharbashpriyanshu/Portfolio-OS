@@ -28,10 +28,14 @@ export function MissionControlSection() {
 
           <h2
             id="mission-control-heading"
-            className="mb-6 font-heading text-4xl font-extrabold tracking-tight text-foreground sm:text-5xl lg:text-6xl"
+            className="mb-4 font-heading text-4xl font-extrabold tracking-tight text-foreground sm:text-5xl lg:text-6xl"
           >
             {MISSION_CONFIG.heading}
           </h2>
+
+          <p className="mb-8 max-w-2xl text-lg font-medium text-primary">
+            {MISSION_CONFIG.subtitle}
+          </p>
 
           <div className="max-w-2xl space-y-4 text-base leading-relaxed text-muted-foreground sm:text-lg text-justify">
             {MISSION_CONFIG.introduction.map((paragraph, idx) => (

@@ -1,9 +1,36 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { MISSION_CONFIG } from "./mission-config";
-import { Terminal, Activity } from "lucide-react";
+import {
+  Terminal,
+  Activity,
+  Code,
+  Shield,
+  BrainCircuit,
+  Target,
+  Server,
+  ShieldCheck,
+  Github,
+  GraduationCap,
+} from "lucide-react";
+import { PROJECTS_DATA } from "@/components/sections/projects/projects-config";
+import { JOURNEY_DATA } from "@/components/sections/journey/journey-config";
+import { SKILLS_CATEGORIES } from "@/components/sections/skills/skills-config";
+import { CERTIFICATIONS_DATA } from "@/components/sections/certifications/certifications-config";
 
 export function MissionDashboard() {
+  const { dashboard } = MISSION_CONFIG;
+
+  // Calculate dynamic metrics
+  const totalProjects = PROJECTS_DATA.length;
+  const totalInternships = JOURNEY_DATA.filter((item) => item.type === "Internship").length;
+  const totalTechnologies = SKILLS_CATEGORIES.reduce(
+    (acc, category) => acc + category.technologies.length,
+    0
+  );
+  const totalGithubRepos = PROJECTS_DATA.filter((project) => project.github).length;
+  const totalCertifications = CERTIFICATIONS_DATA.length;
+
   return (
     <motion.div
       initial={{ opacity: 0, scale: 0.95, x: 20 }}
@@ -21,8 +48,8 @@ export function MissionDashboard() {
         <div className="mb-8 flex items-center justify-between border-b border-border/50 pb-4">
           <div className="flex items-center gap-2">
             <Terminal className="h-5 w-5 text-primary" />
-            <span className="font-mono text-xs font-bold tracking-widest text-muted-foreground">
-              SYS.METRICS
+            <span className="font-mono text-xs font-bold tracking-widest text-muted-foreground uppercase">
+              CURRENT OPERATIONS
             </span>
           </div>
           <div className="flex items-center gap-2">
@@ -30,40 +57,104 @@ export function MissionDashboard() {
               <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-success opacity-75" />
               <span className="relative inline-flex h-2 w-2 rounded-full bg-success" />
             </span>
-            <span className="font-mono text-xs text-success">ONLINE</span>
+            <span className="font-mono text-xs text-success uppercase">{dashboard.status}</span>
           </div>
         </div>
 
-        {/* Metrics Grid */}
-        <div className="flex flex-col gap-3">
-          {MISSION_CONFIG.currentOperations.map((metric, index) => (
-            <motion.div
-              key={metric.label}
-              initial={{ opacity: 0, x: -10 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.2 + index * 0.05 }}
-              className="group flex flex-col sm:flex-row sm:items-center justify-between rounded-xl border border-border/30 bg-surface/30 p-3 transition-all hover:border-primary/30 hover:bg-primary/5"
-            >
-              <div className="flex items-center gap-3 mb-1 sm:mb-0">
-                <div className="flex h-6 w-6 items-center justify-center rounded bg-surface-elevated text-muted-foreground transition-colors group-hover:bg-primary/20 group-hover:text-primary">
-                  <Activity className="h-3 w-3" />
-                </div>
-                <span className="text-xs font-medium text-foreground-subtle uppercase tracking-wider">
-                  {metric.label}
-                </span>
-              </div>
-              <span className="font-mono text-sm font-semibold text-primary/90 sm:text-right">
-                {metric.value}
+        {/* Current Operations Grid */}
+        <div className="flex flex-col gap-4 mb-8">
+          <div className="flex flex-col gap-1">
+            <span className="font-mono text-[10px] text-muted-foreground uppercase tracking-widest flex items-center gap-2">
+              <Shield className="w-3 h-3" /> CURRENT INTERNSHIP
+            </span>
+            <span className="text-sm font-semibold text-foreground">
+              {dashboard.currentInternship.role}{" "}
+              <span className="text-primary">@ {dashboard.currentInternship.company}</span>
+            </span>
+          </div>
+
+          <div className="flex flex-col gap-1">
+            <span className="font-mono text-[10px] text-muted-foreground uppercase tracking-widest flex items-center gap-2">
+              <Code className="w-3 h-3" /> CURRENT PROJECT
+            </span>
+            <span className="text-sm font-semibold text-foreground">
+              {dashboard.currentProject.name}{" "}
+              <span className="text-foreground-subtle text-xs">
+                — {dashboard.currentProject.description}
               </span>
-            </motion.div>
-          ))}
+            </span>
+          </div>
+
+          <div className="flex flex-col gap-1">
+            <span className="font-mono text-[10px] text-muted-foreground uppercase tracking-widest flex items-center gap-2">
+              <BrainCircuit className="w-3 h-3" /> CURRENT LEARNING
+            </span>
+            <span className="text-xs font-medium text-foreground-subtle leading-relaxed">
+              {dashboard.currentLearning.join(" • ")}
+            </span>
+          </div>
+
+          <div className="flex flex-col gap-1 mt-2 p-3 rounded-lg bg-primary/5 border border-primary/20">
+            <span className="font-mono text-[10px] text-primary uppercase tracking-widest flex items-center gap-2 mb-1">
+              <Target className="w-3 h-3" /> CURRENT OBJECTIVE
+            </span>
+            <span className="text-xs text-foreground-muted leading-relaxed">
+              {dashboard.currentObjective}
+            </span>
+          </div>
+        </div>
+
+        {/* Dynamic Metrics */}
+        <div className="grid grid-cols-2 gap-3 mt-auto border-t border-border/50 pt-6">
+          <div className="flex flex-col items-center justify-center p-3 rounded-xl bg-surface/30 border border-border/40">
+            <Server className="w-4 h-4 text-cyber-blue mb-1" />
+            <span className="font-heading text-lg font-bold text-foreground">{totalProjects}</span>
+            <span className="font-mono text-[9px] uppercase tracking-wider text-muted-foreground">
+              Projects
+            </span>
+          </div>
+          <div className="flex flex-col items-center justify-center p-3 rounded-xl bg-surface/30 border border-border/40">
+            <ShieldCheck className="w-4 h-4 text-cyber-emerald mb-1" />
+            <span className="font-heading text-lg font-bold text-foreground">
+              {totalInternships}
+            </span>
+            <span className="font-mono text-[9px] uppercase tracking-wider text-muted-foreground">
+              Internships
+            </span>
+          </div>
+          <div className="flex flex-col items-center justify-center p-3 rounded-xl bg-surface/30 border border-border/40">
+            <Activity className="w-4 h-4 text-cyber-amber mb-1" />
+            <span className="font-heading text-lg font-bold text-foreground">
+              {totalTechnologies}
+            </span>
+            <span className="font-mono text-[9px] uppercase tracking-wider text-muted-foreground">
+              Technologies
+            </span>
+          </div>
+          <div className="flex flex-col items-center justify-center p-3 rounded-xl bg-surface/30 border border-border/40">
+            <Github className="w-4 h-4 text-foreground-muted mb-1" />
+            <span className="font-heading text-lg font-bold text-foreground">
+              {totalGithubRepos}
+            </span>
+            <span className="font-mono text-[9px] uppercase tracking-wider text-muted-foreground">
+              Repositories
+            </span>
+          </div>
+          <div className="col-span-2 flex flex-col items-center justify-center p-3 rounded-xl bg-surface/30 border border-border/40">
+            <GraduationCap className="w-4 h-4 text-primary mb-1" />
+            <span className="font-heading text-lg font-bold text-foreground">
+              {totalCertifications}
+            </span>
+            <span className="font-mono text-[9px] uppercase tracking-wider text-muted-foreground">
+              Certifications
+            </span>
+          </div>
         </div>
 
         {/* Footer detail */}
-        <div className="mt-auto pt-8">
+        <div className="mt-6">
           <div className="flex w-full items-center justify-center gap-2 rounded-lg border border-border/40 bg-surface/20 py-2 font-mono text-[10px] text-muted-foreground">
-            <span>LAST_UPDATED: {new Date().toISOString().split("T")[0]}</span>
+            <span>LAST_UPDATED: {dashboard.lastUpdated}</span>
             <span>|</span>
             <span>STATUS: NOMINAL</span>
           </div>

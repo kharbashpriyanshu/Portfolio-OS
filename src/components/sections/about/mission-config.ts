@@ -1,47 +1,57 @@
 export const MISSION_CONFIG = {
   heading: "Mission Control",
   label: "ABOUT",
+  subtitle:
+    "Engineering secure systems through practical learning, continuous improvement, and real-world problem solving.",
   introduction: [
-    "My engineering philosophy is rooted in continuous, evidence-based learning and hands-on laboratory environments. From my ongoing B.Tech studies to my ethical hacking internship at iStudio, I focus on deeply understanding systems to better secure them.",
-    "I specialize in the intersection of offensive security research and secure software development. By engineering tools like LogSentry and PortIntel, I actively apply threat detection, automation, and zero-trust AppSec principles to solve complex infrastructure challenges.",
+    "My approach to cybersecurity is centered on building practical systems rather than relying only on theoretical knowledge.",
+    "Every project I develop helps strengthen my understanding of secure software engineering, detection engineering, network security, backend development, and defensive security practices.",
+    "I believe that real engineering experience comes from designing, building, testing, documenting, and continuously improving software that solves meaningful security problems.",
+    "My goal is to become a Security Engineer capable of building secure, scalable, and maintainable systems while continuously expanding my technical knowledge through projects, internships, and hands-on learning.",
   ],
   cards: [
     {
-      id: "soc-threat-detection",
-      title: "SOC & Threat Detection",
+      id: "security-engineering",
+      title: "Security Engineering",
       description:
-        "Analyzing logs, identifying network anomalies, and proactively monitoring infrastructure to detect and mitigate potential security incidents.",
+        "Designing applications with security integrated throughout the software development lifecycle by applying secure coding principles, authentication, authorization, input validation, and maintainable architectures.",
       icon: "ShieldAlert",
     },
     {
-      id: "application-security",
-      title: "Application Security",
+      id: "detection-engineering",
+      title: "Detection Engineering",
       description:
-        "Building resilient systems and integrating secure coding practices to protect applications from modern vulnerabilities and exploits.",
+        "Building systems capable of collecting, processing, analyzing, and visualizing security events to improve threat detection, monitoring, and defensive decision making.",
+      icon: "Search",
+    },
+    {
+      id: "secure-software-development",
+      title: "Secure Software Development",
+      description:
+        "Developing modern backend applications using modular architectures, REST APIs, relational databases, scalable design principles, and secure development practices.",
       icon: "Code2",
     },
     {
-      id: "automation-python",
-      title: "Automation & Python",
+      id: "continuous-growth",
+      title: "Continuous Growth",
       description:
-        "Developing custom Python scripts and automation pipelines to streamline security workflows and enhance operational efficiency.",
-      icon: "Terminal",
-    },
-    {
-      id: "problem-solving",
-      title: "Complex Problem Solving",
-      description:
-        "Applying analytical thinking and engineering principles to architect secure solutions for intricate technical challenges.",
+        "Improving through internships, engineering projects, technical documentation, certifications, and practical experimentation to continuously strengthen cybersecurity and software engineering skills.",
       icon: "BrainCircuit",
     },
   ],
-  currentOperations: [
-    { label: "Currently Building", value: "Portfolio OS" },
-    { label: "Current Internship", value: "iStudio (Ethical Hacking)" },
-    { label: "Current Learning", value: "TryHackMe Junior Pentester" },
-    { label: "CGPA", value: "8.00 / 10.00" },
-    { label: "Upcoming Project", value: "VisionShield X" },
-    { label: "Latest Achievement", value: "LogSentry (116/116 Tests)" },
-    { label: "Future Goal", value: "Security Engineer Role" },
-  ],
+  dashboard: {
+    status: "ONLINE",
+    currentInternship: {
+      role: "Ethical Hacking Intern",
+      company: "iStudio",
+    },
+    currentProject: {
+      name: "LogSentry",
+      description: "AI-powered SIEM Platform",
+    },
+    currentLearning: ["Detection Engineering", "Network Security", "Secure Software Development"],
+    currentObjective:
+      "Build production-ready cybersecurity solutions while continuously improving secure software engineering skills.",
+    lastUpdated: "August 2026",
+  },
 };
