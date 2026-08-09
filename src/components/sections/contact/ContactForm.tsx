@@ -28,9 +28,12 @@ export const ContactForm = React.memo(function ContactForm() {
           className="flex flex-col items-center justify-center rounded-xl border border-cyber-emerald/30 bg-cyber-emerald/10 p-8 text-center"
         >
           <CheckCircle2 className="mb-4 h-12 w-12 text-cyber-emerald" />
-          <h4 className="mb-2 font-bold text-foreground">Message Sent Successfully!</h4>
+          <h4 className="mb-2 font-bold text-foreground">Thank you for reaching out.</h4>
           <p className="text-sm text-muted-foreground">
-            Thank you for reaching out. I will respond to your inquiry shortly.
+            Your message has been received successfully.
+          </p>
+          <p className="text-sm text-muted-foreground mt-1">
+            I appreciate your time and will respond as soon as possible.
           </p>
         </motion.div>
       ) : (

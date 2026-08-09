@@ -92,7 +92,11 @@ export function SocHeroHud() {
                 asChild
                 className="gap-2 border-primary/40 bg-surface/50 text-foreground hover:border-primary hover:bg-surface-elevated"
               >
-                <a href="/resume.pdf" target="_blank" rel="noopener noreferrer">
+                <a
+                  href="https://drive.google.com/file/d/1Ct6UC6zFQBstbasyYEOmQ_oxBRLsdrmm/view?usp=drive_link"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <Download className="h-4 w-4 text-primary" aria-hidden="true" />
                   <span>Download Resume</span>
                 </a>

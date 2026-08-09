@@ -41,7 +41,7 @@ const ContactSection = lazy(() =>
  */
 export function HomePage() {
   return (
-    <div className="flex flex-col w-full">
+    <div className="flex flex-col w-full gap-8 md:gap-16 lg:gap-24 pb-20 lg:pb-32">
       <SEO />
       <ErrorBoundary variant="section">
         <HeroSection />

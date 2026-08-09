@@ -26,7 +26,9 @@ export const AvailabilityPanel = React.memo(function AvailabilityPanel({
         <h3 className="font-heading text-lg font-bold text-foreground">Current Availability</h3>
       </div>
 
-      <p className="mb-6 text-sm text-muted-foreground">{availability.message}</p>
+      {availability.message && (
+        <p className="mb-6 text-sm text-muted-foreground">{availability.message}</p>
+      )}
 
       <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
         {availability.items.map((item, index) => (

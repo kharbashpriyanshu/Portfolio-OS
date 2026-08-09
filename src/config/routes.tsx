@@ -4,6 +4,8 @@ import { AppLayout } from "@/components/layout/AppLayout";
 import { ErrorBoundary } from "@/components/common/ErrorBoundary";
 import { HomePage } from "@/pages/HomePage";
 import { NotFoundPage } from "@/pages/NotFoundPage";
+import { AdminLogin } from "@/pages/admin/AdminLogin";
+import { AdminInbox } from "@/pages/admin/AdminInbox";
 import { ROUTES } from "@/constants";
 
 /**
@@ -28,6 +30,22 @@ export const router = createBrowserRouter([
         element: <NotFoundPage />,
       },
     ],
+  },
+  {
+    path: "/admin/login",
+    element: (
+      <ErrorBoundary>
+        <AdminLogin />
+      </ErrorBoundary>
+    ),
+  },
+  {
+    path: "/admin/inbox",
+    element: (
+      <ErrorBoundary>
+        <AdminInbox />
+      </ErrorBoundary>
+    ),
   },
 ]);
 

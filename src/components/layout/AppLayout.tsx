@@ -2,7 +2,7 @@ import React from "react";
 import { Outlet } from "react-router-dom";
 import { SkipLink } from "@/components/common/SkipLink";
 import { Navbar } from "@/components/navigation/Navbar";
-import { APP_OWNER } from "@/constants";
+import { GlobalBackground } from "./GlobalBackground";
 
 interface AppLayoutProps {
   children?: React.ReactNode;
@@ -15,7 +15,8 @@ interface AppLayoutProps {
  */
 export function AppLayout({ children }: AppLayoutProps) {
   return (
-    <div className="flex min-h-screen flex-col bg-background text-foreground">
+    <div className="flex min-h-screen flex-col bg-background text-foreground relative z-0">
+      <GlobalBackground />
       <SkipLink targetId="main-content" />
 
       <Navbar />
@@ -26,11 +27,17 @@ export function AppLayout({ children }: AppLayoutProps) {
 
       <footer
         role="contentinfo"
-        className="border-t border-border/80 bg-background/80 py-8 text-center"
+        className="border-t border-border/80 bg-background/80 py-12 text-center"
       >
-        <div className="mx-auto max-w-7xl px-4 text-xs text-muted-foreground sm:px-6">
+        <div className="mx-auto max-w-7xl px-4 text-xs leading-loose text-muted-foreground sm:px-6">
           <p>
-            &copy; {new Date().getFullYear()} {APP_OWNER}. All rights reserved.
+            Designed and engineered by <br />
+            <span className="font-semibold text-foreground">Priyanshu Kharbash</span>
+          </p>
+          <p className="mt-4">
+            Built using <br />
+            React &bull; TypeScript &bull; FastAPI &bull; TailwindCSS &bull; Framer Motion &bull;
+            Modern Software Engineering Practices
           </p>
         </div>
       </footer>

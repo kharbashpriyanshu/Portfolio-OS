@@ -1,15 +1,15 @@
 export type CertificationCategory =
-  | "Professional Certifications"
-  | "Courses"
-  | "Hackathons"
-  | "Workshops"
-  | "Achievements"
-  | "Awards"
-  | "Digital Badges";
+  | "Cybersecurity Certifications"
+  | "Professional Training"
+  | "Database & SQL"
+  | "Workshop"
+  | "Internship Evidence"
+  | "Current Learning"
+  | "Achievements";
 
 export type CertificationFilterType = "All" | "Featured" | CertificationCategory;
 
-export type CertificationStatus = "Active" | "Expired" | "In Progress";
+export type CertificationStatus = "Active" | "Expired" | "In Progress" | "Completed" | "Ongoing";
 
 export interface CertificationItem {
   id: string;
@@ -19,6 +19,9 @@ export interface CertificationItem {
   expiryDate?: string;
   credentialId?: string;
   verificationUrl?: string;
+  certificateUrl?: string;
+  certificateFile?: string;
+  evidence?: string;
   category: CertificationCategory;
   skills: string[];
   description: string;

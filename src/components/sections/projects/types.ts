@@ -33,18 +33,25 @@ export interface ProjectData {
   // Case Study Fields
   overview: string;
   problem: string;
+  objectives?: string[];
   features: string[];
   architecture?: ArchitectureLayer[];
+  architectureDescription?: string;
+  coreModules?: { name: string; description: string }[];
   screenshots?: string[];
   engineeringDecisions: string[];
   challenges?: string[];
   securityConsiderations?: string[];
+  testing?: string[];
   lessonsLearned: string[];
+  futureImprovements?: string[];
   futureRoadmap?: string[];
 
   // Metadata
   github?: string;
   demo?: string;
+  architectureDiagram?: string;
+  documentation?: string;
   technologies: string[];
   timeline?: {
     start: string;

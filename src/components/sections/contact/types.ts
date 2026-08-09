@@ -22,6 +22,7 @@ export interface AvailabilityStatus {
 export interface ContactConfig {
   heading: string;
   label: string;
+  subtitle?: string;
   introduction: string;
   email: string;
   phone?: string;

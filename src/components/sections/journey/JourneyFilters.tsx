@@ -9,14 +9,11 @@ interface JourneyFiltersProps {
 
 const FILTERS: JourneyFilterType[] = [
   "All",
-  "Internship",
   "Education",
-  "Projects",
-  "Hackathons",
-  "Certifications",
-  "Research",
-  "Achievements",
-  "Future Goals",
+  "Learning",
+  "Engineering",
+  "Internship",
+  "Current",
 ];
 
 export const JourneyFilters = React.memo(function JourneyFilters({

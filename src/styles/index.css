@@ -172,7 +172,7 @@
     @apply btn-base bg-transparent text-foreground hover:bg-accent hover:text-accent-foreground;
   }
   .btn-cyber {
-    @apply btn-base relative overflow-hidden border border-primary/50 bg-primary/10 px-5 py-2.5 text-primary shadow-[0_0_15px_rgba(0,221,255,0.15)] hover:border-primary hover:bg-primary/20 hover:shadow-[0_0_25px_rgba(0,221,255,0.3)] active:scale-[0.98];
+    @apply btn-base relative overflow-hidden border border-primary/30 bg-primary/5 px-6 py-2.5 text-primary shadow-[0_0_15px_rgba(0,221,255,0.05)] transition-all duration-500 ease-out hover:border-primary/60 hover:bg-primary/10 hover:shadow-[0_0_25px_rgba(0,221,255,0.25)] active:scale-[0.98] hover:-translate-y-0.5;
   }
   .btn-destructive {
     @apply btn-base bg-destructive text-destructive-foreground shadow-md hover:bg-destructive/90 active:scale-[0.98];
@@ -180,13 +180,13 @@
 
   /* --- Cards & Panels --- */
   .card-base {
-    @apply rounded-lg border border-border bg-card p-6 text-card-foreground shadow-sm transition-all duration-300;
+    @apply rounded-xl border border-white/5 bg-surface-card/40 p-6 text-card-foreground shadow-lg backdrop-blur-md transition-all duration-500;
   }
   .card-cyber {
-    @apply card-base relative overflow-hidden border-border/80 bg-gradient-to-br from-surface-card/90 to-surface/90 backdrop-blur-md hover:border-primary/50 hover:shadow-[0_4px_20px_rgba(0,221,255,0.1)];
+    @apply card-base relative overflow-hidden border-white/10 bg-gradient-to-br from-surface-card/60 to-surface/40 backdrop-blur-2xl transition-all duration-500 ease-out hover:border-primary/30 hover:shadow-[0_8px_30px_rgba(0,221,255,0.12)];
   }
   .card-interactive {
-    @apply card-cyber cursor-pointer hover:-translate-y-1 hover:border-primary/60;
+    @apply card-cyber cursor-pointer hover:-translate-y-1.5 hover:border-primary/40 hover:bg-surface-elevated/50;
   }
 
   /* --- Badges & Tags --- */
@@ -254,13 +254,13 @@
 
   /* --- Navigation --- */
   .nav-cyber {
-    @apply sticky top-0 z-50 flex h-16 w-full items-center border-b border-border/80 bg-background/80 backdrop-blur-md transition-all duration-300;
+    @apply sticky top-0 z-50 flex h-16 w-full items-center border-b border-white/5 bg-background/40 backdrop-blur-2xl transition-all duration-500;
   }
   .nav-link {
-    @apply text-sm font-medium text-muted-foreground transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-md px-3 py-2;
+    @apply text-sm font-medium text-foreground-muted transition-all duration-500 hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-md px-4 py-2 hover:bg-white/5;
   }
   .nav-link-active {
-    @apply text-sm font-semibold text-primary bg-primary/10 rounded-md px-3 py-2;
+    @apply text-sm font-semibold text-primary bg-primary/10 shadow-[0_0_15px_rgba(0,221,255,0.1)] border border-primary/20 rounded-md px-4 py-2 transition-all duration-500;
   }
 
   /* --- Specialized Cybersecurity Cards --- */
@@ -313,11 +313,37 @@
   }
 
   /* --- Cyber Grid & Matrix Background Patterns --- */
+  @keyframes grid-move {
+    0% {
+      background-position: 0 0;
+      opacity: 0.3;
+    }
+    50% {
+      opacity: 0.5;
+    }
+    100% {
+      background-position: 0 40px;
+      opacity: 0.3;
+    }
+  }
+  @keyframes grid-pulse {
+    0%,
+    100% {
+      opacity: 0.2;
+    }
+    50% {
+      opacity: 0.4;
+    }
+  }
+
   .bg-cyber-grid {
     background-size: 40px 40px;
     background-image:
-      linear-gradient(to right, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
-      linear-gradient(to bottom, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+      linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+    animation:
+      grid-move 90s linear infinite,
+      grid-pulse 8s ease-in-out infinite;
   }
   .bg-cyber-dots {
     background-size: 24px 24px;
@@ -339,5 +365,21 @@
   /* --- Accessible Focus Rings --- */
   .focus-ring {
     @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background;
+  }
+
+  /* --- Custom Scrollbar --- */
+  .scrollbar-terminal::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  .scrollbar-terminal::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  .scrollbar-terminal::-webkit-scrollbar-thumb {
+    @apply bg-white/10 rounded-full hover:bg-white/20 transition-colors;
+  }
+  .scrollbar-terminal {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 255, 255, 0.1) transparent;
   }
 }

@@ -26,7 +26,8 @@ export const JourneyCard = React.memo(function JourneyCard({
     switch (milestone.status) {
       case "Completed":
         return <CheckCircle2 className="h-3 w-3 text-cyber-emerald" />;
-      case "In Progress":
+      case "Ongoing":
+      case "Active":
         return <CircleDashed className="h-3 w-3 text-cyber-blue animate-spin-slow" />;
       case "Planned":
         return <Clock className="h-3 w-3 text-muted-foreground" />;
@@ -71,7 +72,9 @@ export const JourneyCard = React.memo(function JourneyCard({
           {/* Header Info */}
           <div className="flex flex-wrap items-start justify-between gap-2">
             <div className="flex items-center gap-2">
-              <span className="font-mono text-xs font-bold text-primary">{milestone.date}</span>
+              {milestone.date && (
+                <span className="font-mono text-xs font-bold text-primary">{milestone.date}</span>
+              )}
               {milestone.featured && (
                 <span className="flex items-center gap-1 rounded bg-cyber-amber/10 px-1.5 py-0.5 text-[10px] font-bold uppercase tracking-wider text-cyber-amber border border-cyber-amber/20">
                   <Star className="h-2.5 w-2.5 fill-current" /> Featured
@@ -90,9 +93,11 @@ export const JourneyCard = React.memo(function JourneyCard({
               {milestone.title}
             </h3>
             <div className="mt-1.5 flex flex-wrap items-center gap-3 text-xs text-muted-foreground">
-              <span className="flex items-center gap-1">
-                <Building2 className="h-3.5 w-3.5" /> {milestone.organization}
-              </span>
+              {milestone.organization && (
+                <span className="flex items-center gap-1">
+                  <Building2 className="h-3.5 w-3.5" /> {milestone.organization}
+                </span>
+              )}
               {milestone.location && (
                 <span className="flex items-center gap-1">
                   <MapPin className="h-3.5 w-3.5" /> {milestone.location}

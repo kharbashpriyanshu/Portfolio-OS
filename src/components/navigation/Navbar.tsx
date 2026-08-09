@@ -16,8 +16,8 @@ export function Navbar() {
         layout
         className={`mx-auto flex items-center justify-between transition-all duration-500 ease-[0.16,1,0.3,1] pointer-events-auto origin-top ${
           scrolled
-            ? "max-w-4xl bg-surface-card/70 backdrop-blur-lg border border-border-subtle shadow-glass-lg rounded-full px-6 py-3"
-            : "max-w-7xl bg-transparent border-transparent px-2 py-2"
+            ? "max-w-4xl bg-background/80 dark:bg-[#060913]/80 backdrop-blur-xl border border-primary/10 shadow-lg dark:shadow-[0_8px_30px_rgba(0,0,0,0.4)] rounded-full px-6 py-3"
+            : "max-w-7xl bg-background/40 dark:bg-[#060913]/30 backdrop-blur-md border border-primary/5 shadow-sm rounded-full px-4 py-2 mt-2"
         }`}
       >
         <NavLogo />

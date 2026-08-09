@@ -4,22 +4,24 @@ import { ArrowDown } from "lucide-react";
 
 interface ArchitecturePanelProps {
   layers: ArchitectureLayer[];
+  description?: string;
 }
 
 export const ArchitecturePanel = React.memo(function ArchitecturePanel({
   layers,
+  description,
 }: ArchitecturePanelProps) {
   if (!layers || layers.length === 0) return null;
 
   return (
-    <div className="mt-8 rounded-2xl border border-border/40 bg-surface/30 p-6">
+    <div className="mt-8 rounded-2xl border border-white/5 bg-surface-card/40 p-6 backdrop-blur-md shadow-lg">
       <h4 className="mb-6 font-mono text-xs font-bold uppercase tracking-widest text-foreground-muted">
         // System Architecture Map
       </h4>
       <div className="flex flex-col items-center">
         {layers.map((layer, index) => (
           <React.Fragment key={layer.layer}>
-            <div className="flex w-full max-w-sm flex-col items-center gap-2 rounded-xl border border-border/60 bg-surface-elevated p-4 text-center shadow-sm transition-colors hover:border-primary/40 hover:bg-surface-card">
+            <div className="flex w-full max-w-sm flex-col items-center gap-2 rounded-xl border border-white/10 bg-surface-elevated/50 p-4 text-center shadow-md backdrop-blur-sm transition-all duration-500 hover:border-primary/40 hover:bg-surface-card/60">
               <span className="font-heading text-sm font-bold text-foreground">{layer.layer}</span>
               <div className="flex flex-wrap justify-center gap-1.5">
                 {layer.technologies.map((tech) => (
@@ -40,6 +42,11 @@ export const ArchitecturePanel = React.memo(function ArchitecturePanel({
           </React.Fragment>
         ))}
       </div>
+      {description && (
+        <p className="mt-6 text-center text-xs font-medium italic text-muted-foreground">
+          {description}
+        </p>
+      )}
     </div>
   );
 });

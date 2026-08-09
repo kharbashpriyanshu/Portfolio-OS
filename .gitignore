@@ -125,3 +125,11 @@ Thumbs.db
 
 # Vercel
 .vercel
+
+# Backend / Python
+__pycache__/
+*.pyc
+*.pyo
+venv/
+portfolio.db
+.pytest_cache/

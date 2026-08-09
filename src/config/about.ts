@@ -106,7 +106,8 @@ export const ABOUT_CONFIG: AboutConfig = {
     detail: "Seeking challenging positions in Cyber Security, VAPT, and AI Security Engineering.",
   },
   socialLinks: SOCIAL_LINKS,
-  resumeUrl: "/resume.pdf",
+  resumeUrl:
+    "https://drive.google.com/file/d/1Ct6UC6zFQBstbasyYEOmQ_oxBRLsdrmm/view?usp=drive_link",
 };
 
 export default ABOUT_CONFIG;

@@ -7,26 +7,25 @@ interface TerminalLine {
 }
 
 const COMMANDS: Record<string, string> = {
-  help: "Available Commands\nhelp\nwhoami\nprojects\nskills\nexperience\neducation\ncertifications\ncurrent\ngithub\nlinkedin\nresume\ncontact\nroadmap\nclear",
+  help: "Available Commands\nhelp\nwhoami\ncurrent\nprojects\nskills\nexperience\ncerts\ngithub\nlinkedin\nresume\ncontact\nroadmap\nclear",
   whoami:
-    "Name\nPriyanshu Kharbash\n\nRole\nCybersecurity Engineering Student\n\nCurrent Focus\nSecurity Engineering\nDetection Engineering\nNetwork Security\nSecure Software Development\n\nStatus\nOpen to Internship Opportunities",
+    "Priyanshu Kharbash\nCybersecurity Engineering Student\nFocus: Security Engineering, Detection Engineering, Network Security, AppSec\nBuilding practical cybersecurity systems and security tooling.",
   skills:
-    "> Security: Threat Detection, VAPT, AppSec, OSINT\n> Backend: Python, FastAPI, PostgreSQL\n> Frontend: React, TypeScript, Tailwind\n> DevOps/Tools: Git, Docker, Linux",
+    "> Programming: Python, C++, Java, JavaScript, TypeScript, HTML, CSS, SQL\n> Cybersecurity: Kali Linux, Wireshark, Nmap, Metasploit, Burp Suite, OWASP Top 10\n> Backend: FastAPI, Flask, REST APIs, SQLAlchemy\n> Databases: PostgreSQL, MySQL, SQLite, Firebase\n> DevOps/Tools: Git, GitHub, Docker, Linux",
   experience:
-    "> 2026: Ethical Hacking Intern @ iStudio\n> 2026: Cyber Security Intern @ Codec Technologies",
-  education: "> B.Tech Computer Science (Cyber Security) @ Rashtriya Raksha University",
+    "> Current: Ethical Hacking Intern @ iStudio Technologies (Jul 2026 – Present)\nFocus: Network Security, Penetration Testing Labs, Vulnerability Assessment\n\n> Past: Cyber Security Intern @ Codec Networks (Apr 2026 – May 2026)\nFocus: Nmap, Wireshark, Burp Suite, Metasploit",
   projects:
-    "1. LogSentry - Commercial-Grade SIEM\n2. PortIntel - Automated Reconnaissance\n3. Academic Resource Hub\n4. Portfolio OS",
-  certifications: "> Google Cybersecurity Foundations\n> CCEP (Red Team Leaders)",
-  internship: "> Ethical Hacking Internship at iStudio\nFocus: VAPT, Securing Infrastructure",
-  resume: "> Initializing secure download...\n> Click the 'Download Resume' button in the UI.",
-  github: "> github.com/kharbashpriyanshu",
-  linkedin: "> LinkedIn profile currently unavailable.",
+    "Engineering Projects\n\n01  LogSentry\n    AI-assisted SIEM / security analytics platform\n\n02  PortIntel\n    Intelligent Network Reconnaissance Framework\n\n03  Academic Resource Hub\n    Full-stack academic resource platform\n\n04  TraceZero\n    Windows system cleanup and privacy utility",
+  certs:
+    "> Google Cybersecurity Professional Certificate\n> CCEP Training (Red Team Leaders)\n> Database Management and SQL (Infosys Springboard)\n> MATLAB Workshop\n> Cyber Security Internship Certificate",
+  resume: "> Opening resume...",
+  github: "> Opening GitHub profile...",
+  linkedin: "> Opening LinkedIn profile...",
   roadmap:
-    "Engineering Roadmap\n\nCompleted\n• LogSentry\n• PortIntel\n• Academic Resource Hub\n\nPlanned\n• VisionShield X\n• NetGuardian AI\n• S.H.I.E.L.D.",
+    "Engineering Roadmap\n\nCompleted\n• LogSentry\n• PortIntel\n• Academic Resource Hub\n• TraceZero\n\nPlanned\n• Backend Analytics Integration\n• Dynamic Contact System",
   current:
-    "Current Internship\nEthical Hacking Intern\niStudio\n\nCurrent Project\nLogSentry\n\nCurrent Learning\nDetection Engineering\nNetwork Security\n\nCurrent Goal\nBuild production-ready cybersecurity solutions.",
-  contact: "Email: kharbashpriyanshu@gmail.com\nGitHub: github.com/kharbashpriyanshu",
+    "Current Focus\n• Cybersecurity Engineering\n• Detection Engineering\n• Network Security\n• Secure Backend Development\n• Application Security\n• Python-based Security Tooling",
+  contact: "> Scrolling to Contact section...",
 };
 
 const BOOT_SEQUENCE = [
@@ -100,6 +99,22 @@ export function useTerminal() {
       { id: Date.now().toString() + "-in", type: "input", content: cmd },
       { id: Date.now().toString() + "-out", type: "output", content: output },
     ]);
+
+    // Handle side-effects
+    setTimeout(() => {
+      if (trimmedCmd === "github") {
+        window.open("https://github.com/kharbashpriyanshu", "_blank");
+      } else if (trimmedCmd === "linkedin") {
+        window.open("https://www.linkedin.com/in/priyanshukharbash/", "_blank");
+      } else if (trimmedCmd === "resume") {
+        window.open(
+          "https://drive.google.com/file/d/1Ct6UC6zFQBstbasyYEOmQ_oxBRLsdrmm/view?usp=drive_link",
+          "_blank"
+        );
+      } else if (trimmedCmd === "contact") {
+        document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
+      }
+    }, 100);
   };
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {

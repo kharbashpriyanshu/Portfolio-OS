@@ -1,7 +1,16 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { MISSION_CONFIG } from "./mission-config";
-import { ShieldAlert, Code2, Bot, TrendingUp, Terminal, BrainCircuit, Search } from "lucide-react";
+import {
+  ShieldAlert,
+  Code2,
+  Bot,
+  TrendingUp,
+  Terminal,
+  BrainCircuit,
+  Search,
+  Activity,
+} from "lucide-react";
 
 const ICON_MAP = {
   ShieldAlert: ShieldAlert,
@@ -11,6 +20,7 @@ const ICON_MAP = {
   Terminal: Terminal,
   BrainCircuit: BrainCircuit,
   Search: Search,
+  Activity: Activity,
 };
 
 interface MissionCardProps {

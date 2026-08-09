@@ -195,12 +195,12 @@ export function InteractiveTerminal() {
             <p>
               Official resume PDF available for download at:{" "}
               <a
-                href="/resume.pdf"
+                href="https://drive.google.com/file/d/1Ct6UC6zFQBstbasyYEOmQ_oxBRLsdrmm/view?usp=drive_link"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="font-mono text-primary underline-offset-4 hover:underline"
               >
-                /resume.pdf
+                Google Drive Document
               </a>
             </p>
           </div>

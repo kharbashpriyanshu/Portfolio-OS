@@ -10,6 +10,14 @@ import {
   ShieldAlert,
   Settings,
   Lightbulb,
+  Target,
+  Layers,
+  TestTube,
+  AlertTriangle,
+  Rocket,
+  FileText,
+  Image as ImageIcon,
+  Network,
 } from "lucide-react";
 
 interface ProjectDetailsProps {
@@ -89,6 +97,36 @@ export const ProjectDetails = React.memo(function ProjectDetails({ project }: Pr
                     <ExternalLink className="h-3.5 w-3.5" /> Live Demo
                   </a>
                 )}
+                {project.architectureDiagram && (
+                  <a
+                    href={project.architectureDiagram}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-1.5 rounded-lg border border-border/60 bg-surface-elevated px-3 py-1.5 text-xs font-medium text-foreground transition-colors hover:border-primary/50 hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+                  >
+                    <Network className="h-3.5 w-3.5" /> Architecture
+                  </a>
+                )}
+                {project.screenshots && project.screenshots.length > 0 && (
+                  <a
+                    href={project.screenshots[0]}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-1.5 rounded-lg border border-border/60 bg-surface-elevated px-3 py-1.5 text-xs font-medium text-foreground transition-colors hover:border-primary/50 hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+                  >
+                    <ImageIcon className="h-3.5 w-3.5" /> Screenshots
+                  </a>
+                )}
+                {project.documentation && (
+                  <a
+                    href={project.documentation}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-1.5 rounded-lg border border-border/60 bg-surface-elevated px-3 py-1.5 text-xs font-medium text-foreground transition-colors hover:border-primary/50 hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+                  >
+                    <FileText className="h-3.5 w-3.5" /> Documentation
+                  </a>
+                )}
               </div>
             </header>
 
@@ -132,6 +170,27 @@ export const ProjectDetails = React.memo(function ProjectDetails({ project }: Pr
             {/* Layout Grid for Features, Engineering, Security, Lessons */}
             <div className="grid grid-cols-1 gap-6 xl:grid-cols-2">
               <div className="flex flex-col gap-6">
+                {/* Objectives */}
+                {project.objectives && project.objectives.length > 0 && (
+                  <section className="rounded-xl border border-border/40 bg-surface/30 p-5">
+                    <h4 className="mb-4 flex items-center gap-2 font-heading text-sm font-bold text-foreground">
+                      <Target className="h-4 w-4 text-primary" />
+                      Objectives
+                    </h4>
+                    <ul className="flex flex-col gap-3">
+                      {project.objectives.map((item, idx) => (
+                        <li
+                          key={idx}
+                          className="flex items-start gap-2 text-xs text-muted-foreground"
+                        >
+                          <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-primary/70" />
+                          <span className="leading-relaxed">{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </section>
+                )}
+
                 {/* Key Features */}
                 {project.features && project.features.length > 0 && (
                   <section className="rounded-xl border border-border/40 bg-surface/30 p-5">
@@ -141,6 +200,45 @@ export const ProjectDetails = React.memo(function ProjectDetails({ project }: Pr
                     </h4>
                     <ul className="flex flex-col gap-3">
                       {project.features.map((item, idx) => (
+                        <li
+                          key={idx}
+                          className="flex items-start gap-2 text-xs text-muted-foreground"
+                        >
+                          <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-cyber-emerald/70" />
+                          <span className="leading-relaxed">{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </section>
+                )}
+
+                {/* Core Modules */}
+                {project.coreModules && project.coreModules.length > 0 && (
+                  <section className="rounded-xl border border-border/40 bg-surface/30 p-5">
+                    <h4 className="mb-4 flex items-center gap-2 font-heading text-sm font-bold text-foreground">
+                      <Layers className="h-4 w-4 text-cyber-blue" />
+                      Core Modules
+                    </h4>
+                    <ul className="flex flex-col gap-4">
+                      {project.coreModules.map((item, idx) => (
+                        <li key={idx} className="flex flex-col gap-1 text-xs text-muted-foreground">
+                          <span className="font-bold text-foreground-subtle">{item.name}</span>
+                          <span className="leading-relaxed">{item.description}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </section>
+                )}
+
+                {/* Testing */}
+                {project.testing && project.testing.length > 0 && (
+                  <section className="rounded-xl border border-border/40 bg-surface/30 p-5">
+                    <h4 className="mb-4 flex items-center gap-2 font-heading text-sm font-bold text-foreground">
+                      <TestTube className="h-4 w-4 text-cyber-emerald" />
+                      Testing
+                    </h4>
+                    <ul className="flex flex-col gap-3">
+                      {project.testing.map((item, idx) => (
                         <li
                           key={idx}
                           className="flex items-start gap-2 text-xs text-muted-foreground"
@@ -217,12 +315,57 @@ export const ProjectDetails = React.memo(function ProjectDetails({ project }: Pr
                     </ul>
                   </section>
                 )}
+
+                {/* Challenges */}
+                {project.challenges && project.challenges.length > 0 && (
+                  <section className="rounded-xl border border-border/40 bg-surface/30 p-5">
+                    <h4 className="mb-4 flex items-center gap-2 font-heading text-sm font-bold text-foreground">
+                      <AlertTriangle className="h-4 w-4 text-cyber-amber" />
+                      Challenges
+                    </h4>
+                    <ul className="flex flex-col gap-3">
+                      {project.challenges.map((item, idx) => (
+                        <li
+                          key={idx}
+                          className="flex items-start gap-2 text-xs text-muted-foreground"
+                        >
+                          <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-cyber-amber/70" />
+                          <span className="leading-relaxed">{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </section>
+                )}
+
+                {/* Future Improvements */}
+                {project.futureImprovements && project.futureImprovements.length > 0 && (
+                  <section className="rounded-xl border border-border/40 bg-surface/30 p-5">
+                    <h4 className="mb-4 flex items-center gap-2 font-heading text-sm font-bold text-foreground">
+                      <Rocket className="h-4 w-4 text-cyber-blue" />
+                      Future Improvements
+                    </h4>
+                    <ul className="flex flex-col gap-3">
+                      {project.futureImprovements.map((item, idx) => (
+                        <li
+                          key={idx}
+                          className="flex items-start gap-2 text-xs text-muted-foreground"
+                        >
+                          <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-cyber-blue/70" />
+                          <span className="leading-relaxed">{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </section>
+                )}
               </div>
             </div>
 
             {/* Architecture Panel */}
             {project.architecture && project.architecture.length > 0 && (
-              <ArchitecturePanel layers={project.architecture} />
+              <ArchitecturePanel
+                layers={project.architecture}
+                description={project.architectureDescription}
+              />
             )}
 
             {/* Metrics */}

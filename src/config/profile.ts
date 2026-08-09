@@ -11,11 +11,12 @@ export const PROFILE_CONFIG = {
     "Cyber Security Engineering student specializing in threat detection and AppSec. Currently automating reconnaissance workflows, building SIEM tools, and bridging the gap between offensive research and secure software development.",
   location: "Gandhinagar, Gujarat",
   email: "kharbashpriyanshu@gmail.com",
-  resumeUrl: "#",
+  resumeUrl:
+    "https://drive.google.com/file/d/1Ct6UC6zFQBstbasyYEOmQ_oxBRLsdrmm/view?usp=drive_link",
   calendarUrl: "",
   socials: {
     github: "https://github.com/kharbashpriyanshu",
-    linkedin: "",
+    linkedin: "https://www.linkedin.com/in/priyanshukharbash/",
     tryhackme: "",
     medium: "",
   },

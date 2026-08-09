@@ -4,9 +4,11 @@ import { PROFILE_CONFIG } from "@/config/profile";
 export const CONTACT_CONFIG: ContactConfig = {
   heading: "Let's Build Something Meaningful",
   label: "GET IN TOUCH",
+  subtitle:
+    "Whether you are looking for a cybersecurity intern, discussing engineering opportunities, collaborating on security-focused projects, or simply connecting professionally, I would be glad to hear from you.",
   introduction:
-    "I am actively seeking security engineering internships, full-time opportunities, and open-source collaborations. Let's connect and build secure, resilient systems together.",
-  email: PROFILE_CONFIG.email,
+    "I enjoy building practical cybersecurity solutions, learning through engineering, and collaborating with professionals who value secure software development and continuous improvement.\n\nIf my projects or experience align with your requirements, feel free to get in touch.",
+  email: "kharbashpriyanshu@gmail.com",
   location: PROFILE_CONFIG.location,
   resumeUrl: PROFILE_CONFIG.resumeUrl,
   calendarUrl: PROFILE_CONFIG.calendarUrl,
@@ -14,7 +16,7 @@ export const CONTACT_CONFIG: ContactConfig = {
     {
       id: "email",
       name: "Email",
-      url: `mailto:${PROFILE_CONFIG.email}`,
+      url: `mailto:kharbashpriyanshu@gmail.com`,
       icon: "Mail",
       description: "Direct communication",
     },
@@ -49,13 +51,12 @@ export const CONTACT_CONFIG: ContactConfig = {
   ],
   availability: {
     status: "Available",
-    message: "Currently open to new opportunities.",
+    message: "",
     items: [
-      { id: "internships", label: "Open to Internships", active: true },
-      { id: "fulltime", label: "Open to Full-time Opportunities", active: true },
-      { id: "opensource", label: "Open Source Collaboration", active: true },
-      { id: "hackathons", label: "Hackathons", active: true },
-      { id: "remote", label: "Remote Work", active: true },
+      { id: "internships", label: "Open to Cybersecurity Internships", active: true },
+      { id: "engineering", label: "Open to Security Engineering Opportunities", active: true },
+      { id: "collaborations", label: "Open to Technical Collaborations", active: true },
+      { id: "opensource", label: "Open to Open Source Contributions", active: true },
     ],
   },
 };

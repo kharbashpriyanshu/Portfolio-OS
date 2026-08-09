@@ -18,9 +18,9 @@ export function AnimatedPreviewArea({ schematic, projectName }: AnimatedPreviewA
   const [activeTab, setActiveTab] = useState<"pipeline" | "code">("pipeline");
 
   return (
-    <div className="card-cyber relative flex flex-col overflow-hidden rounded-2xl border border-border/80 bg-surface-card/95 shadow-2xl transition-all duration-300 hover:border-primary/60">
+    <div className="card-cyber relative flex flex-col overflow-hidden rounded-2xl shadow-2xl transition-all duration-500">
       {/* Top Console Bar */}
-      <div className="flex flex-wrap items-center justify-between gap-2 border-b border-border/80 bg-surface-elevated/80 px-4 py-3">
+      <div className="flex flex-wrap items-center justify-between gap-2 border-b border-white/5 bg-black/40 px-4 py-3 backdrop-blur-md">
         <div className="flex items-center gap-2">
           <span className="h-2.5 w-2.5 rounded-full bg-destructive/80" aria-hidden="true" />
           <span className="h-2.5 w-2.5 rounded-full bg-warning/80" aria-hidden="true" />
@@ -147,7 +147,7 @@ export function AnimatedPreviewArea({ schematic, projectName }: AnimatedPreviewA
       </div>
 
       {/* Footer System Indicator */}
-      <div className="border-t border-border/60 bg-surface/40 px-4 py-2 font-mono text-2xs text-muted-foreground flex items-center justify-between">
+      <div className="border-t border-white/5 bg-black/20 px-4 py-2 font-mono text-2xs text-muted-foreground flex items-center justify-between backdrop-blur-md">
         <span className="flex items-center gap-1.5">
           <TerminalIcon className="h-3 w-3 text-primary" aria-hidden="true" />
           <span>PORTFOLIO-OS // CASE-STUDY-HUD</span>

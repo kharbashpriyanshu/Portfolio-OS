@@ -1,73 +1,94 @@
 # Professional Journey
 
-## 1. Started B.Tech
+## 1. B.Tech Computer Science & Engineering (Cyber Security)
 
-- **Date**: Aug 2024
 - **Organization**: Rashtriya Raksha University
+- **Location**: Gandhinagar, Gujarat, India
 - **Type**: Education
+- **Status**: Ongoing
+- **Description**: Pursuing Computer Science & Engineering with a specialization in Cyber Security, building foundations across computer networks, programming, databases, operating systems, cybersecurity, and secure computing.
+  The academic foundation is complemented by practical projects, security labs, certifications, technical workshops, and independent learning outside the classroom.
+- **Highlights**:
+  - Computer Networks
+  - Cybersecurity
+  - Programming
+  - Database Systems
+  - Operating Systems
+  - Digital Image Processing
+  - Practical networking and security laboratories
+
+## 2. Building Cybersecurity Foundations
+
+- **Type**: Learning
 - **Status**: Completed
-- **Description**: Pursuing Bachelor of Technology in Computer Science Engineering (Cyber Security). Coursework includes Computer Networks, Operating Systems, Database Management Systems, Cryptography, Digital Forensics, and Network Security.
+- **Description**: Expanded cybersecurity knowledge beyond university coursework through structured courses, certifications, practical labs, security tools, networking exercises, and independent experimentation.
+- **Highlights**:
+  - Network Security
+  - Linux
+  - Kali Linux
+  - Wireshark
+  - Nmap
+  - Burp Suite
+  - Metasploit
+  - OSINT
+  - Digital Forensics
+  - Web Security
+  - Reconnaissance and Enumeration
 
-## 2. Cyber Security Intern
+## 3. From Learning Security to Building Security Tools
 
-- **Date**: Apr 2026 - May 2026
+- **Type**: Engineering
+- **Status**: Completed
+- **Description**: Started applying cybersecurity and programming knowledge by developing practical engineering projects instead of limiting learning to isolated exercises.
+  Projects such as PortIntel and LogSentry became opportunities to explore network reconnaissance, security automation, log analysis, detection engineering, threat intelligence, backend architecture, and secure software development.
+- **Highlights**:
+  - Python security tooling
+  - Network reconnaissance
+  - Security automation
+  - Log analysis
+  - Detection engineering
+  - Backend development
+  - REST API development
+  - Secure software architecture
+
+## 4. Cyber Security Internship
+
 - **Organization**: Codec Technologies
 - **Type**: Internship
 - **Status**: Completed
-- **Description**: Successfully completed cybersecurity internship covering cybersecurity fundamentals and practical concepts. Performed hands-on security assessments using Linux, Nmap, Wireshark, Burp Suite, and Metasploit in controlled laboratory environments. Applied reconnaissance, vulnerability identification, and web application security testing methodologies.
+- **Description**: Completed a cybersecurity internship focused on strengthening foundational security knowledge and gaining structured exposure to cybersecurity concepts and practical learning.
+- **Highlights**:
+  - Cybersecurity fundamentals
+  - Practical security learning
+  - Structured internship experience
+  - Professional technical development
 
-## 3. Academic Resource Hub
+## 5. Ethical Hacking Internship
 
-- **Date**: Needs Verification
-- **Organization**: Independent Project
-- **Type**: Project Milestone
-- **Status**: Completed
-- **Description**: Developed a secure, AI-powered educational platform using React, Supabase, and Gemini.
-
-## 4. PortIntel
-
-- **Date**: Needs Verification
-- **Organization**: Independent Project
-- **Type**: Project Milestone
-- **Status**: Completed
-- **Description**: Engineered an automated reconnaissance and VAPT intelligence framework featuring NVD-authenticated threat feeds and CVSS v3.1 standard risk metrics.
-
-## 5. LogSentry
-
-- **Date**: Needs Verification
-- **Organization**: Independent Project
-- **Type**: Project Milestone
-- **Status**: Completed
-- **Description**: Developed a commercial-grade SIEM and detection engine. Integrated Gemini REST for AI-powered SOC incident response and automated triage.
-
-## 6. Ethical Hacking Intern
-
-- **Date**: Jul 2026 - Present
 - **Organization**: iStudio
 - **Type**: Internship
-- **Status**: In Progress
-- **Description**: Participating in a structured Ethical Hacking Internship covering penetration testing, network security, web application security, Linux, and cybersecurity methodologies. Performing hands-on security labs involving reconnaissance, vulnerability assessment, and exploitation techniques.
+- **Status**: Ongoing
+- **Description**: Currently undertaking an Ethical Hacking internship focused on developing practical cybersecurity skills through structured training and hands-on security activities.
+  The internship contributes to strengthening knowledge across ethical hacking, vulnerability assessment, penetration-testing concepts, network security, and security analysis.
+- **Highlights**:
+  - Ethical Hacking
+  - Vulnerability Assessment
+  - Penetration Testing Concepts
+  - Network Security
+  - Security Analysis
+  - Hands-on Cybersecurity Learning
 
-## 7. VisionShield X
+## 6. Current Engineering Development
 
-- **Date**: Future
-- **Organization**: Innovation Roadmap
-- **Type**: Milestone
-- **Status**: Planned
-- **Description**: AI Visual Forensics & Digital Evidence Platform.
-
-## 8. NetGuardian AI
-
-- **Date**: Future
-- **Organization**: Innovation Roadmap
-- **Type**: Milestone
-- **Status**: Planned
-- **Description**: AI-powered Network Monitoring & Security Analytics Platform.
-
-## 9. Predictive Cyber Crime Analytics
-
-- **Date**: Future
-- **Organization**: Innovation Roadmap
-- **Type**: Milestone
-- **Status**: Planned
-- **Description**: Research & Development.
+- **Type**: Current
+- **Status**: Active
+- **Description**: Continuing to strengthen practical cybersecurity and software engineering capabilities through security-focused projects, internship experience, technical documentation, interview preparation, and hands-on learning.
+  Objective: Develop the technical depth, engineering discipline, and practical cybersecurity experience required to transition from cybersecurity student to security professional.
+- **Current Focus**:
+  - Security Engineering
+  - Detection Engineering
+  - Network Security
+  - Secure Software Development
+  - Threat Intelligence
+  - Cybersecurity Interview Preparation
+  - Building practical security tools

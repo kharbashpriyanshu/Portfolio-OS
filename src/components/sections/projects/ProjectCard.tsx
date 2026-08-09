@@ -1,6 +1,6 @@
 import React from "react";
 import { ProjectData } from "./types";
-import { Star, ChevronRight } from "lucide-react";
+import { Star, ChevronRight, Github, FileText } from "lucide-react";
 import { motion } from "framer-motion";
 
 interface ProjectCardProps {
@@ -22,10 +22,10 @@ export const ProjectCard = React.memo(function ProjectCard({
       exit={{ opacity: 0, scale: 0.95 }}
       transition={{ duration: 0.3 }}
       onClick={onClick}
-      className={`group relative flex w-full flex-col gap-2 rounded-xl border p-4 text-left transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary ${
+      className={`group relative flex w-full flex-col gap-2 rounded-xl border p-4 text-left transition-all duration-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary backdrop-blur-md ${
         isActive
-          ? "border-primary/50 bg-primary/10 shadow-[0_0_15px_rgba(0,221,255,0.1)]"
-          : "border-border/50 bg-surface-card/30 hover:border-primary/30 hover:bg-surface-card/60"
+          ? "border-primary/50 bg-primary/10 shadow-[0_0_15px_rgba(0,221,255,0.2)]"
+          : "border-white/5 bg-surface-card/40 hover:border-primary/30 hover:bg-surface-elevated/50 shadow-sm"
       }`}
       aria-pressed={isActive}
     >
@@ -77,6 +77,39 @@ export const ProjectCard = React.memo(function ProjectCard({
         >
           {project.status}
         </span>
+      </div>
+
+      <div className="mt-2 flex flex-wrap gap-1">
+        {project.technologies.slice(0, 3).map((tech) => (
+          <span
+            key={tech}
+            className="rounded bg-primary/10 border border-primary/20 px-1.5 py-0.5 text-[9px] font-mono text-primary"
+          >
+            {tech}
+          </span>
+        ))}
+        {project.technologies.length > 3 && (
+          <span className="rounded bg-surface-elevated px-1.5 py-0.5 text-[9px] font-mono text-muted-foreground">
+            +{project.technologies.length - 3}
+          </span>
+        )}
+      </div>
+
+      <div className="mt-3 flex items-center gap-4">
+        {project.github && (
+          <a
+            href={project.github}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={(e) => e.stopPropagation()}
+            className="flex items-center text-[10px] font-medium text-muted-foreground hover:text-primary transition-colors"
+          >
+            <Github className="mr-1 h-3 w-3" /> GitHub
+          </a>
+        )}
+        <div className="flex items-center text-[10px] font-medium text-muted-foreground group-hover:text-primary transition-colors">
+          <FileText className="mr-1 h-3 w-3" /> Case Study
+        </div>
       </div>
     </motion.button>
   );

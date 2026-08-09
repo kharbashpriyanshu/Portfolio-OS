@@ -36,6 +36,12 @@ export function ProfessionalJourney() {
             {JOURNEY_CONFIG.heading}
           </h2>
 
+          {JOURNEY_CONFIG.subtitle && (
+            <p className="mb-6 max-w-2xl text-lg font-medium text-primary">
+              {JOURNEY_CONFIG.subtitle}
+            </p>
+          )}
+
           <p className="max-w-3xl text-base leading-relaxed text-muted-foreground sm:text-lg">
             {JOURNEY_CONFIG.introduction}
           </p>

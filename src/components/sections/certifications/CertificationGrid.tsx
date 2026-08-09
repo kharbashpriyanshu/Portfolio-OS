@@ -25,13 +25,10 @@ export const CertificationGrid = React.memo(function CertificationGrid({
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.95 }}
-            className="flex w-full flex-col items-center justify-center py-20 text-center opacity-70"
+            className="flex w-full flex-col items-center justify-center py-20 text-center"
           >
-            <div className="rounded-full border border-dashed border-border p-4 mb-4">
-              <div className="h-8 w-8 rounded-full bg-surface-elevated" />
-            </div>
-            <p className="text-sm font-medium text-foreground-muted">
-              No achievements found matching criteria.
+            <p className="text-sm font-medium text-foreground-subtle">
+              No credentials found for this category.
             </p>
           </motion.div>
         )}

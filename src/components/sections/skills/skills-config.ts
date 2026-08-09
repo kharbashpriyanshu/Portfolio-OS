@@ -36,6 +36,8 @@ export const SKILLS_CATEGORIES: SkillCategory[] = [
       "Burp Suite",
       "OWASP Top 10",
       "Packet Tracer",
+      "ffuf",
+      "SecLists",
       "OSINT",
       "Network Security",
       "Digital Forensics",

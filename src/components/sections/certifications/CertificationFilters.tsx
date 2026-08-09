@@ -7,16 +7,10 @@ interface CertificationFiltersProps {
   setActiveFilter: (filter: CertificationFilterType) => void;
 }
 
-const FILTERS: CertificationFilterType[] = [
-  "All",
-  "Featured",
-  "Professional Certifications",
-  "Courses",
-  "Hackathons",
-  "Workshops",
-  "Achievements",
-  "Awards",
-];
+import { CERTIFICATIONS_DATA } from "./certifications-config";
+
+const dynamicCategories = Array.from(new Set(CERTIFICATIONS_DATA.map((item) => item.category)));
+const FILTERS: CertificationFilterType[] = ["All", "Featured", ...dynamicCategories];
 
 export const CertificationFilters = React.memo(function CertificationFilters({
   activeFilter,

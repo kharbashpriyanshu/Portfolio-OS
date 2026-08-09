@@ -41,9 +41,9 @@ export function SOCNavbar() {
   return (
     <header
       role="banner"
-      className={`sticky top-0 z-50 w-full transition-all duration-300 ${
+      className={`sticky top-0 z-50 w-full transition-all duration-500 ${
         isScrolled
-          ? "border-b border-border/80 bg-background/80 backdrop-blur-md shadow-sm"
+          ? "border-b border-white/5 bg-background/40 backdrop-blur-2xl shadow-sm"
           : "border-b border-transparent bg-transparent"
       }`}
     >
@@ -82,7 +82,7 @@ export function SOCNavbar() {
             <a
               key={item.href}
               href={item.href}
-              className="rounded-md px-3.5 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-surface-elevated hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+              className="rounded-md px-4 py-2 text-sm font-medium text-muted-foreground transition-all duration-500 hover:bg-white/5 hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
             >
               {item.label}
             </a>
@@ -98,7 +98,11 @@ export function SOCNavbar() {
             asChild
             className="border-primary/40 text-primary hover:border-primary hover:bg-primary/10"
           >
-            <a href="/resume.pdf" target="_blank" rel="noopener noreferrer">
+            <a
+              href="https://drive.google.com/file/d/1Ct6UC6zFQBstbasyYEOmQ_oxBRLsdrmm/view?usp=drive_link"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <FileText className="mr-1.5 h-4 w-4" aria-hidden="true" />
               Resume
             </a>
@@ -135,7 +139,7 @@ export function SOCNavbar() {
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
-            className="overflow-hidden border-b border-border/80 bg-background/95 backdrop-blur-xl lg:hidden"
+            className="overflow-hidden border-b border-white/5 bg-background/60 backdrop-blur-3xl lg:hidden shadow-2xl"
           >
             <div className="flex flex-col space-y-1 px-4 pb-6 pt-3 sm:px-6">
               {MAIN_NAVIGATION.map((item) => (
@@ -143,7 +147,7 @@ export function SOCNavbar() {
                   key={item.href}
                   href={item.href}
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className="rounded-md px-3 py-2.5 text-base font-medium text-foreground transition-colors hover:bg-surface-elevated hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+                  className="rounded-md px-4 py-3 text-base font-medium text-foreground transition-all duration-500 hover:bg-white/5 hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
                 >
                   {item.label}
                 </a>
@@ -155,7 +159,7 @@ export function SOCNavbar() {
                   className="w-full justify-center border-primary/40 text-primary hover:border-primary hover:bg-primary/10"
                 >
                   <a
-                    href="/resume.pdf"
+                    href="https://drive.google.com/file/d/1Ct6UC6zFQBstbasyYEOmQ_oxBRLsdrmm/view?usp=drive_link"
                     target="_blank"
                     rel="noopener noreferrer"
                     onClick={() => setIsMobileMenuOpen(false)}

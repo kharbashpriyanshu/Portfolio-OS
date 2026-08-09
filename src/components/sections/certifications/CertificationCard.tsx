@@ -15,11 +15,15 @@ export const CertificationCard = React.memo(function CertificationCard({
   const getStatusIcon = () => {
     switch (item.status) {
       case "Active":
+      case "Completed":
         return <CheckCircle2 className="h-3 w-3 text-cyber-emerald" />;
       case "In Progress":
+      case "Ongoing":
         return <Clock className="h-3 w-3 text-cyber-blue animate-spin-slow" />;
       case "Expired":
         return <Clock className="h-3 w-3 text-muted-foreground" />;
+      default:
+        return null;
     }
   };
 
@@ -54,17 +58,21 @@ export const CertificationCard = React.memo(function CertificationCard({
           <h3 className="font-heading text-lg font-bold text-foreground group-hover:text-primary transition-colors">
             {item.title}
           </h3>
-          <p className="text-sm font-medium text-primary/80 mt-1 flex items-center gap-1.5">
-            <Award className="h-3.5 w-3.5" />
-            {item.issuer}
-          </p>
+          {item.issuer && (
+            <p className="text-sm font-medium text-primary/80 mt-1 flex items-center gap-1.5">
+              <Award className="h-3.5 w-3.5" />
+              {item.issuer}
+            </p>
+          )}
         </div>
 
         <div className="mb-4 flex flex-wrap gap-x-4 gap-y-2 text-xs text-muted-foreground">
-          <span className="flex items-center gap-1">
-            <Calendar className="h-3 w-3" />
-            Issued: {item.issueDate}
-          </span>
+          {item.issueDate && (
+            <span className="flex items-center gap-1">
+              <Calendar className="h-3 w-3" />
+              Issued: {item.issueDate}
+            </span>
+          )}
           {item.expiryDate && (
             <span className="flex items-center gap-1">
               <Calendar className="h-3 w-3 opacity-50" />
@@ -96,17 +104,30 @@ export const CertificationCard = React.memo(function CertificationCard({
               {item.category}
             </span>
 
-            {item.verificationUrl && (
-              <a
-                href={item.verificationUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-1.5 text-xs font-semibold text-primary hover:text-primary-focus transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded p-1"
-                aria-label={`Verify ${item.title}`}
-              >
-                Verify <ExternalLink className="h-3.5 w-3.5" />
-              </a>
-            )}
+            <div className="flex items-center gap-3">
+              {item.certificateUrl && (
+                <a
+                  href={item.certificateUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-1.5 text-xs font-semibold text-primary hover:text-primary-focus transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded p-1"
+                  aria-label={`View Certificate for ${item.title}`}
+                >
+                  View Certificate <ExternalLink className="h-3.5 w-3.5" />
+                </a>
+              )}
+              {item.verificationUrl && (
+                <a
+                  href={item.verificationUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-1.5 text-xs font-semibold text-primary hover:text-primary-focus transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded p-1"
+                  aria-label={`Verify ${item.title}`}
+                >
+                  Verify Credential <ExternalLink className="h-3.5 w-3.5" />
+                </a>
+              )}
+            </div>
           </div>
         </div>
       </div>

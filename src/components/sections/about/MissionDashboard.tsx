@@ -65,41 +65,42 @@ export function MissionDashboard() {
         <div className="flex flex-col gap-4 mb-8">
           <div className="flex flex-col gap-1">
             <span className="font-mono text-[10px] text-muted-foreground uppercase tracking-widest flex items-center gap-2">
-              <Shield className="w-3 h-3" /> CURRENT INTERNSHIP
+              <Shield className="w-3 h-3" /> CURRENT ROLE
+            </span>
+            <span className="text-sm font-semibold text-foreground">{dashboard.currentRole}</span>
+          </div>
+
+          <div className="flex flex-col gap-1">
+            <span className="font-mono text-[10px] text-muted-foreground uppercase tracking-widest flex items-center gap-2">
+              <ShieldCheck className="w-3 h-3" /> CURRENT INTERNSHIP
             </span>
             <span className="text-sm font-semibold text-foreground">
-              {dashboard.currentInternship.role}{" "}
-              <span className="text-primary">@ {dashboard.currentInternship.company}</span>
+              {dashboard.currentInternship}
             </span>
           </div>
 
           <div className="flex flex-col gap-1">
             <span className="font-mono text-[10px] text-muted-foreground uppercase tracking-widest flex items-center gap-2">
-              <Code className="w-3 h-3" /> CURRENT PROJECT
+              <Code className="w-3 h-3" /> CURRENT BUILD
             </span>
-            <span className="text-sm font-semibold text-foreground">
-              {dashboard.currentProject.name}{" "}
-              <span className="text-foreground-subtle text-xs">
-                — {dashboard.currentProject.description}
-              </span>
-            </span>
-          </div>
-
-          <div className="flex flex-col gap-1">
-            <span className="font-mono text-[10px] text-muted-foreground uppercase tracking-widest flex items-center gap-2">
-              <BrainCircuit className="w-3 h-3" /> CURRENT LEARNING
-            </span>
-            <span className="text-xs font-medium text-foreground-subtle leading-relaxed">
-              {dashboard.currentLearning.join(" • ")}
-            </span>
+            <span className="text-sm font-semibold text-foreground">{dashboard.currentBuild}</span>
           </div>
 
           <div className="flex flex-col gap-1 mt-2 p-3 rounded-lg bg-primary/5 border border-primary/20">
             <span className="font-mono text-[10px] text-primary uppercase tracking-widest flex items-center gap-2 mb-1">
-              <Target className="w-3 h-3" /> CURRENT OBJECTIVE
+              <Target className="w-3 h-3" /> CURRENT ENGINEERING PROJECT
             </span>
-            <span className="text-xs text-foreground-muted leading-relaxed">
-              {dashboard.currentObjective}
+            <span className="text-sm font-medium text-foreground leading-relaxed">
+              {dashboard.currentEngineeringProject}
+            </span>
+          </div>
+
+          <div className="flex flex-col gap-1">
+            <span className="font-mono text-[10px] text-muted-foreground uppercase tracking-widest flex items-center gap-2">
+              <BrainCircuit className="w-3 h-3" /> CURRENT FOCUS
+            </span>
+            <span className="text-xs font-medium text-foreground-subtle leading-relaxed">
+              {dashboard.currentFocus}
             </span>
           </div>
         </div>

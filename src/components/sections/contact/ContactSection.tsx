@@ -34,6 +34,12 @@ export function ContactSection() {
             {CONTACT_CONFIG.heading}
           </h2>
 
+          {CONTACT_CONFIG.subtitle && (
+            <p className="mb-6 max-w-3xl text-lg font-medium text-primary">
+              {CONTACT_CONFIG.subtitle}
+            </p>
+          )}
+
           <p className="max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg">
             {CONTACT_CONFIG.introduction}
           </p>
