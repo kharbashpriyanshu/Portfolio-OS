@@ -1,16 +1,19 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import env from "@/config/env";
 import { motion } from "framer-motion";
 import { Lock, User, Key, ArrowRight, ShieldAlert } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
-const BASE_URL = env.apiBaseUrl || "";
+const BASE_URL = (env.apiBaseUrl || "").trim();
+const ADMIN_INBOX_PATH = "/admin/inbox";
 
 export function AdminLogin() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const navigate = useNavigate();
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -31,7 +34,7 @@ export function AdminLogin() {
       });
 
       if (response.ok) {
-        window.location.href = "/admin/inbox";
+        navigate(ADMIN_INBOX_PATH, { replace: true });
       } else {
         const data = await response.json();
         setError(data.detail || "Authentication failed");

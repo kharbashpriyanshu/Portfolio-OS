@@ -10,9 +10,11 @@ import {
   ArrowLeft,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useNavigate, Navigate } from "react-router-dom";
 import env from "@/config/env";
 
-const BASE_URL = env.apiBaseUrl || "";
+const BASE_URL = (env.apiBaseUrl || "").trim();
+const ADMIN_LOGIN_PATH = "/admin/login";
 
 interface ContactMessage {
   id: number;
@@ -48,6 +50,10 @@ export function AdminInbox() {
   const [stats, setStats] = useState<DashboardStats | null>(null);
   const [senders, setSenders] = useState<ContactSender[]>([]);
   const [viewMode, setViewMode] = useState<"messages" | "senders">("messages");
+  const [authState, setAuthState] = useState<"loading" | "authenticated" | "unauthenticated">(
+    "loading"
+  );
+  const navigate = useNavigate();
 
   useEffect(() => {
     fetchMessages();
@@ -77,17 +83,20 @@ export function AdminInbox() {
     try {
       const response = await fetch(`${BASE_URL}/api/v1/admin/messages`);
       if (response.status === 401 || response.status === 403) {
-        window.location.href = "/admin/login";
+        setAuthState("unauthenticated");
         return;
       }
       if (response.ok) {
         const data = await response.json();
         setMessages(data);
+        setAuthState("authenticated");
       } else {
         console.error("Failed to fetch messages.");
+        setAuthState("unauthenticated");
       }
     } catch (err) {
       console.error("Server connection failed.", err);
+      setAuthState("unauthenticated");
     } finally {
       setIsLoading(false);
     }
@@ -95,7 +104,7 @@ export function AdminInbox() {
 
   const handleLogout = async () => {
     await fetch(`${BASE_URL}/api/v1/admin/logout`, { method: "POST" });
-    window.location.href = "/admin/login";
+    navigate(ADMIN_LOGIN_PATH, { replace: true });
   };
 
   const markAsRead = async (id: number, is_read: boolean) => {
@@ -160,12 +169,16 @@ export function AdminInbox() {
       );
     });
 
-  if (isLoading) {
+  if (isLoading || authState === "loading") {
     return (
       <div className="dark min-h-screen flex items-center justify-center bg-background text-primary font-mono">
         <span className="animate-pulse">Loading secure inbox...</span>
       </div>
     );
+  }
+
+  if (authState === "unauthenticated") {
+    return <Navigate to={ADMIN_LOGIN_PATH} replace />;
   }
 
   return (
