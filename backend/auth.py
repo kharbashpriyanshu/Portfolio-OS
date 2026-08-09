@@ -14,7 +14,14 @@ ACCESS_TOKEN_EXPIRE_MINUTES = 60 * 24  # 1 day
 pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 
 ADMIN_USERNAME = os.getenv("ADMIN_USERNAME", "admin")
-ADMIN_PASSWORD_HASH = os.getenv("ADMIN_PASSWORD_HASH", pwd_context.hash("admin123"))
+ADMIN_PASSWORD_HASH = os.getenv("ADMIN_PASSWORD_HASH")
+ENVIRONMENT = os.getenv("ENVIRONMENT", "development")
+
+if not ADMIN_PASSWORD_HASH:
+    if ENVIRONMENT == "production":
+        raise RuntimeError("ADMIN_PASSWORD_HASH environment variable is required in production")
+    else:
+        ADMIN_PASSWORD_HASH = pwd_context.hash("admin123")
 
 class TokenData(BaseModel):
     username: Optional[str] = None
